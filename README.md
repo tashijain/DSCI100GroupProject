@@ -9,10 +9,10 @@ https://archive.ics.uci.edu/ml/datasets/Heart+Disease
 ## Notes on Datset
 
 - Hungarian: `reprocessed.hungarian.data`
-  - delimer: `" "` (space)
+  - delimiter: `" "` (space)
 - Cleveland: `processed.cleveland.data`
-  - delimer: `","` (comma)
+  - delimiter: `","` (comma)
 - Switzerland: `processed.switzerland.data`
-  - delimer: `","` (comma)
+  - delimiter: `","` (comma)
 - Long Beach VA: `processed.va.data`
-  - delimer: `","` (comma)
+  - delimiter: `","` (comma)

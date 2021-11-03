@@ -6,7 +6,7 @@ Recommended to install [RStudio](https://www.rstudio.com/products/rstudio/downlo
 ## Data Source
 https://archive.ics.uci.edu/ml/datasets/Heart+Disease
 
-## Notes on Datset
+## Notes on Dataset
 
 - Hungarian: `reprocessed.hungarian.data`
   - delimiter: `" "` (space)

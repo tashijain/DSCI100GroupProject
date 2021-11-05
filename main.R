@@ -44,5 +44,8 @@ ggplot(heart_disease_data, aes(x = chol)) +
   geom_histogram() +
   facet_grid(rows = vars(region))
 
-
+# Make a Whisker Box Plot # ----
+ggplot(heart_disease_data, aes(x = region)) + 
+  geom_boxplot() + 
+  facet_grid(rows = vars(cp, chol, restecg))
 

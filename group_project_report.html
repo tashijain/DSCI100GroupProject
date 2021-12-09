@@ -1,0 +1,1455 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heart Disease Classification &#8212; My Jupyter Book</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Heart Disease Classification" href="group_project_proposal.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">My Jupyter Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   DSCI100GroupProject
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="group_project_proposal.html">
+   Heart Disease Classification
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Heart Disease Classification
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/group_project_report.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/group_project_report.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   1. Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#background">
+     1.1 Background
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-set">
+     1.2 Data set
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods-results">
+   2. Methods &amp; Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loading-libraries-setting-seed">
+     2.1 Loading libraries &amp; Setting Seed
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reading-cleaning-and-wrangling-data">
+     2.2 Reading, Cleaning, and Wrangling Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#splitting-summarizing-data">
+     2.3 Splitting &amp; Summarizing data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#summary-statistics-only-using-training-data">
+       Summary Statistics (only using training data)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualization-using-training-data">
+     2.4 Visualization (using training data)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scatterplot-of-two-variables-at-a-time-eda">
+     2.5 Scatterplot of two variables at a time (EDA)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eda-using-ggpairs">
+     2.6 EDA (using ggpairs)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classification">
+   3. Classification
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-the-model-and-recipe">
+     3.1 Creating the model and recipe
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#performing-cross-validation-and-determining-which-k-to-use">
+     3.2 Performing cross-validation and determining which k to use
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-of-k-vs-accuracy-to-choose-the-most-optimal-k-value">
+     3.3 Plot of K vs Accuracy to choose the most optimal K value
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparing-presence-to-predicted-presence">
+     3.4 Comparing presence to predicted presence
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discussion">
+   4. Discussion
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#findings">
+     4.1 Findings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expectations">
+     4.2 Expectations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#possible-impacts">
+     4.3 Possible Impacts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#future-questions">
+     4.4 Future Questions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   5. References
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#study-investigating-the-link-between-st-depression-in-ecg-and-heart-disease">
+     Study investigating the link between ST depression in ECG and heart disease
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#study-investigating-the-link-between-aging-and-heart-disease">
+     Study investigating the link between aging and heart disease
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-repository">
+     Data repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Data set
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="heart-disease-classification">
+<h1>Heart Disease Classification<a class="headerlink" href="#heart-disease-classification" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="background">
+<h3>1.1 Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h3>
+<p>Cardiovascular diseases (CVDs), especially heart disorders, are a primary cause of death worldwide, according to the World Health Organization.</p>
+<p>The aim of this project is to answer the following question: <strong>Is heart disease present (values = 1, 2, 3, 4) or absent (value = 0) in a new patient?</strong></p>
+</div>
+<div class="section" id="data-set">
+<h3>1.2 Data set<a class="headerlink" href="#data-set" title="Permalink to this headline">¶</a></h3>
+<p>To answer this question, we will analyze data downloaded from the UCI Machine Learning Repository. Below, we read the Cleveland dataset into <code class="docutils literal notranslate"><span class="pre">heart_disease_dataset</span></code>. Each row in the data set contains data about one patient. We will add a column <code class="docutils literal notranslate"><span class="pre">presence</span></code> (the predicted attribute) to indicate the presence or absence of heart disease.</p>
+<p>Relevant columns in the dataset:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">age</span></code> - age in years</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sex</span></code> - sex (1 = male; 0 = female)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cp</span></code> - chest pain type</p>
+<ul>
+<li><p>Value 1: typical angina</p></li>
+<li><p>Value 2: atypical angina</p></li>
+<li><p>Value 3: non-anginal pain</p></li>
+<li><p>Value 4: asymptomatic</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trestbps</span></code> - resting blood pressure (in mm Hg on admission to the hospital)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chol</span></code> - serum cholestoral in mg/dl</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fbs</span></code> - (fasting blood sugar &gt; 120 mg/dl) (1 = true; 0 = false)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">restecg</span></code> - resting electrocardiographic results</p>
+<ul>
+<li><p>Value 0: normal</p></li>
+<li><p>Value 1: having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of &gt; 0.05 mV)</p></li>
+<li><p>Value 2: showing probable or definite left ventricular hypertrophy by Estes’ criteria</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thalach</span></code> - maximum heart rate achieved</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exang</span></code> - exercise induced angina (1 = yes; 0 = no)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oldpeak</span></code> - ST depression induced by exercise relative to rest</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slope</span></code> - the slope of the peak exercise ST segment</p>
+<ul>
+<li><p>Value 1: upsloping</p></li>
+<li><p>Value 2: flat</p></li>
+<li><p>Value 3: downsloping</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ca</span></code> - number of major vessels (0-3) colored by flourosopy</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thal</span></code> - 3 = normal; 6 = fixed defect; 7 = reversable defect</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">presence</span></code> - predicted attribute (1,2,3,4 - yes and 0 - no)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="methods-results">
+<h2>2. Methods &amp; Results<a class="headerlink" href="#methods-results" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="loading-libraries-setting-seed">
+<h3>2.1 Loading libraries &amp; Setting Seed<a class="headerlink" href="#loading-libraries-setting-seed" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">tidymodels</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">GGally</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Attaching packages</span> ------------------------------------------------------------------------ tidyverse 1.3.1 --
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">ggplot2</span> 3.3.5     <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">purrr  </span> 0.3.4
+<span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">tibble </span> 3.1.6     <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">dplyr  </span> 1.0.7
+<span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">tidyr  </span> 1.1.4     <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">stringr</span> 1.4.0
+<span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">readr  </span> 2.1.1     <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">forcats</span> 0.5.1
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Conflicts</span> --------------------------------------------------------------------------- tidyverse_conflicts() --
+<span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">filter()</span> masks <span class=" -Color -Color-Blue">stats</span>::filter()
+<span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">lag()</span>    masks <span class=" -Color -Color-Blue">stats</span>::lag()
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Registered S3 method overwritten by &#39;tune&#39;:
+  method                   from   
+  required_pkgs.model_spec parsnip
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Attaching packages</span> ----------------------------------------------------------------------- tidymodels 0.1.4 --
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">broom       </span> 0.7.10     <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">rsample     </span> 0.1.1 
+<span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">dials       </span> 0.0.10     <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">tune        </span> 0.1.6 
+<span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">infer       </span> 1.0.0      <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">workflows   </span> 0.2.4 
+<span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">modeldata   </span> 0.1.1      <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">workflowsets</span> 0.1.0 
+<span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">parsnip     </span> 0.1.7      <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">yardstick   </span> 0.0.9 
+<span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">recipes     </span> 0.1.17     
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Conflicts</span> -------------------------------------------------------------------------- tidymodels_conflicts() --
+<span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">scales</span>::<span class=" -Color -Color-Green">discard()</span> masks <span class=" -Color -Color-Blue">purrr</span>::discard()
+<span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">filter()</span>   masks <span class=" -Color -Color-Blue">stats</span>::filter()
+<span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">recipes</span>::<span class=" -Color -Color-Green">fixed()</span>  masks <span class=" -Color -Color-Blue">stringr</span>::fixed()
+<span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">lag()</span>      masks <span class=" -Color -Color-Blue">stats</span>::lag()
+<span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">yardstick</span>::<span class=" -Color -Color-Green">spec()</span> masks <span class=" -Color -Color-Blue">readr</span>::spec()
+<span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">recipes</span>::<span class=" -Color -Color-Green">step()</span>   masks <span class=" -Color -Color-Blue">stats</span>::step()
+<span class=" -Color -Color-Blue">*</span> Learn how to get started at <span class=" -Color -Color-Green">https://www.tidymodels.org/start/</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Registered S3 method overwritten by &#39;GGally&#39;:
+  method from   
+  +.gg   ggplot2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">set.seed</span><span class="p">(</span><span class="m">999</span><span class="p">)</span> <span class="c1"># reproducible</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reading-cleaning-and-wrangling-data">
+<h3>2.2 Reading, Cleaning, and Wrangling Data<a class="headerlink" href="#reading-cleaning-and-wrangling-data" title="Permalink to this headline">¶</a></h3>
+<p>We will start by reading in the data using the URL, adding column names, following the necessary pre-processing steps on the dataset, and splitting the dataset into training and testing dataset. Will will then conduct some Exploratory data analysis using visualisations on training data and ggpairs to figure out which attributes will be essential in our classification model.</p>
+<ul class="simple">
+<li><p>Assign column names <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">sex</span></code>, <code class="docutils literal notranslate"><span class="pre">cp</span></code>, <code class="docutils literal notranslate"><span class="pre">trestbps</span></code>, <code class="docutils literal notranslate"><span class="pre">chol</span></code>, <code class="docutils literal notranslate"><span class="pre">fbs</span></code>, <code class="docutils literal notranslate"><span class="pre">restecg</span></code>, <code class="docutils literal notranslate"><span class="pre">thalach</span></code>, <code class="docutils literal notranslate"><span class="pre">exang</span></code>, <code class="docutils literal notranslate"><span class="pre">oldpeak</span></code>, <code class="docutils literal notranslate"><span class="pre">slope</span></code>, <code class="docutils literal notranslate"><span class="pre">ca</span></code>, <code class="docutils literal notranslate"><span class="pre">thal</span></code>, <code class="docutils literal notranslate"><span class="pre">presence</span></code>.</p></li>
+<li><p>Filter out any rows containing NA or invalid value.</p></li>
+<li><p>Select only <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">trestbps</span></code>, <code class="docutils literal notranslate"><span class="pre">chol</span></code>, <code class="docutils literal notranslate"><span class="pre">thalach</span></code>, <code class="docutils literal notranslate"><span class="pre">oldpeak</span></code> (non-categorical variables), and <code class="docutils literal notranslate"><span class="pre">presence</span></code> (predicted attribute) columns.</p></li>
+<li><p>Shuffle rows of the data frame for a more representative randomly ordered data set to remove any bias due to the ordering of the rows in the dataset.</p></li>
+<li><p>Represent <code class="docutils literal notranslate"><span class="pre">presence</span></code> as factor type.</p></li>
+<li><p>Scale all the features being used in Classification to get them on the same scale</p></li>
+</ul>
+<p>After preprocessing the other region datasets in the UCI repository, selecting for attributes we needed for classification, then filtering out for NAs, we were not left with much data from those regions. Furthermore some regions did not even have some of the attributes (columns).</p>
+<ul class="simple">
+<li><p>For example, Switzerland was missing attributes like <code class="docutils literal notranslate"><span class="pre">chol</span></code>.</p></li>
+</ul>
+<p>Cleveland was the dataset that had all the required data without missing values/columns and could then be processed to get rid of NAs. Furthermore, by adding regions with significant differences in overall lifestyle, the unmeasured differences produced by being in a different region could cloud our other variables. Hence, we only used the Cleveland data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a data wrangling function</span>
+<span class="n">heart_disease_wrangler</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">region</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">colnames</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="s">&quot;sex&quot;</span><span class="p">,</span> <span class="s">&quot;cp&quot;</span><span class="p">,</span> <span class="s">&quot;trestbps&quot;</span><span class="p">,</span> <span class="s">&quot;chol&quot;</span><span class="p">,</span> <span class="s">&quot;fbs&quot;</span><span class="p">,</span> <span class="s">&quot;restecg&quot;</span><span class="p">,</span> <span class="s">&quot;thalach&quot;</span><span class="p">,</span> <span class="s">&quot;exang&quot;</span><span class="p">,</span> <span class="s">&quot;oldpeak&quot;</span><span class="p">,</span> <span class="s">&quot;slope&quot;</span><span class="p">,</span> <span class="s">&quot;ca&quot;</span><span class="p">,</span> <span class="s">&quot;thal&quot;</span><span class="p">,</span> <span class="s">&quot;presence&quot;</span><span class="p">)</span>
+    <span class="n">heart_disease_data</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">col_names</span> <span class="o">=</span> <span class="n">colnames</span><span class="p">,</span> <span class="n">na</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;?&quot;</span><span class="p">))</span>
+
+    <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Heart disease data set from (&quot;</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="s">&quot;) before dropping all NA has &quot;</span><span class="p">,</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">),</span> <span class="s">&quot;rows and&quot;</span><span class="p">,</span> <span class="nf">ncol</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">),</span> <span class="s">&quot;columns \n&quot;</span><span class="p">)</span>
+
+    <span class="c1"># select only these attributes because rest are categorical variables </span>
+    <span class="n">heart_disease_data</span> <span class="o">&lt;-</span> <span class="nf">select</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">trestbps</span><span class="p">,</span> <span class="n">chol</span><span class="p">,</span> <span class="n">thalach</span><span class="p">,</span> <span class="n">oldpeak</span><span class="p">,</span> <span class="n">presence</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+        <span class="nf">drop_na</span><span class="p">()</span> <span class="c1"># drop any rows with NA </span>
+
+    <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Heart disease data set after dropping all NA has &quot;</span><span class="p">,</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">),</span> <span class="s">&quot;rows and&quot;</span><span class="p">,</span> <span class="nf">ncol</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">),</span> <span class="s">&quot;columns&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Assigning presence 1-4 to &quot;yes&quot; and presence 0 to &quot;no&quot;</span>
+    <span class="n">heart_disease_data</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data</span> <span class="o">%&gt;%</span>
+        <span class="nf">mutate</span><span class="p">(</span><span class="n">presence</span> <span class="o">=</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">presence</span> <span class="o">==</span> <span class="m">0</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">,</span> <span class="s">&quot;yes&quot;</span><span class="p">))</span> <span class="o">%&gt;%</span>
+        <span class="nf">mutate</span><span class="p">(</span><span class="n">presence</span> <span class="o">=</span> <span class="nf">as.factor</span><span class="p">(</span><span class="n">presence</span><span class="p">))</span>
+    
+    <span class="n">heart_disease_data</span><span class="o">$</span><span class="n">region</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+    
+    <span class="nf">return</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># possible other files to read from</span>
+
+<span class="n">url</span> <span class="o">&lt;-</span> <span class="s">&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/&quot;</span>
+
+<span class="n">file_source</span> <span class="o">&lt;-</span> <span class="nf">str_interp</span><span class="p">(</span><span class="s">&quot;${url}${datasource}&quot;</span><span class="p">,</span>
+                      <span class="nf">list</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span><span class="p">,</span>
+                          <span class="n">datasource</span> <span class="o">=</span> <span class="s">&quot;processed.cleveland.data&quot;</span><span class="p">))</span>
+
+<span class="n">heart_disease_data</span> <span class="o">&lt;-</span> <span class="nf">heart_disease_wrangler</span><span class="p">(</span><span class="n">file_source</span><span class="p">,</span> <span class="s">&quot;cleveland&quot;</span><span class="p">)</span>
+
+<span class="n">file_source</span> <span class="o">&lt;-</span> <span class="nf">str_interp</span><span class="p">(</span><span class="s">&quot;${url}${datasource}&quot;</span><span class="p">,</span>
+                      <span class="nf">list</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span><span class="p">,</span>
+                           <span class="n">datasource</span> <span class="o">=</span> <span class="s">&quot;processed.switzerland.data&quot;</span><span class="p">))</span>
+
+<span class="n">heart_disease_data</span> <span class="o">&lt;-</span> <span class="nf">rbind</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">,</span>
+                            <span class="nf">heart_disease_wrangler</span><span class="p">(</span><span class="n">file_source</span><span class="p">,</span> <span class="s">&quot;switzerland&quot;</span><span class="p">))</span>
+
+<span class="n">file_source</span> <span class="o">&lt;-</span> <span class="nf">str_interp</span><span class="p">(</span><span class="s">&quot;${url}${datasource}&quot;</span><span class="p">,</span>
+                      <span class="nf">list</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span><span class="p">,</span>
+                           <span class="n">datasource</span> <span class="o">=</span> <span class="s">&quot;processed.va.data&quot;</span><span class="p">))</span>
+
+<span class="n">heart_disease_data</span> <span class="o">&lt;-</span> <span class="nf">rbind</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">,</span>
+                            <span class="nf">heart_disease_wrangler</span><span class="p">(</span><span class="n">file_source</span><span class="p">,</span> <span class="s">&quot;va&quot;</span><span class="p">))</span>
+
+<span class="n">heart_disease_data</span> <span class="o">%&gt;%</span>
+    <span class="nf">group_by</span><span class="p">(</span><span class="n">region</span><span class="p">,</span> <span class="n">presence</span><span class="p">)</span> <span class="o">%&gt;%</span>
+    <span class="nf">summarise</span><span class="p">(</span><span class="n">count</span> <span class="o">=</span> <span class="nf">n</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">303</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">14</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">-----------------------------------------------------------------------------------------</span>
+<span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
+<span class=" -Color -Color-Green">dbl</span> (14): age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpea...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">i</span> Use <span class=" -Color -Color-Black -Color-Black-BGWhite">`spec()`</span> to retrieve the full column specification for this data.
+<span class=" -Color -Color-Cyan">i</span> Specify the column types or set <span class=" -Color -Color-Black -Color-Black-BGWhite">`show_col_types = FALSE`</span> to quiet this message.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Heart disease data set from ( cleveland ) before dropping all NA has  303 rows and 14 columns 
+Heart disease data set after dropping all NA has  303 rows and 6 columns
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">123</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">14</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">-----------------------------------------------------------------------------------------</span>
+<span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
+<span class=" -Color -Color-Green">dbl</span> (14): age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpea...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">i</span> Use <span class=" -Color -Color-Black -Color-Black-BGWhite">`spec()`</span> to retrieve the full column specification for this data.
+<span class=" -Color -Color-Cyan">i</span> Specify the column types or set <span class=" -Color -Color-Black -Color-Black-BGWhite">`show_col_types = FALSE`</span> to quiet this message.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Heart disease data set from ( switzerland ) before dropping all NA has  123 rows and 14 columns 
+Heart disease data set after dropping all NA has  117 rows and 6 columns
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">200</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">14</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">-----------------------------------------------------------------------------------------</span>
+<span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
+<span class=" -Color -Color-Green">dbl</span> (14): age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpea...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">i</span> Use <span class=" -Color -Color-Black -Color-Black-BGWhite">`spec()`</span> to retrieve the full column specification for this data.
+<span class=" -Color -Color-Cyan">i</span> Specify the column types or set <span class=" -Color -Color-Black -Color-Black-BGWhite">`show_col_types = FALSE`</span> to quiet this message.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Heart disease data set from ( va ) before dropping all NA has  200 rows and 14 columns 
+Heart disease data set after dropping all NA has  137 rows and 6 columns
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`summarise()` has grouped output by &#39;region&#39;. You can override using the `.groups` argument.
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A grouped_df: 6 × 3</caption>
+<thead>
+	<tr><th scope=col>region</th><th scope=col>presence</th><th scope=col>count</th></tr>
+	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>cleveland  </td><td>no </td><td>164</td></tr>
+	<tr><td>cleveland  </td><td>yes</td><td>139</td></tr>
+	<tr><td>switzerland</td><td>no </td><td>  8</td></tr>
+	<tr><td>switzerland</td><td>yes</td><td>109</td></tr>
+	<tr><td>va         </td><td>no </td><td> 30</td></tr>
+	<tr><td>va         </td><td>yes</td><td>107</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># filter for cleveland only</span>
+<span class="n">heart_disease_data</span> <span class="o">&lt;-</span> <span class="nf">filter</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">,</span> <span class="n">region</span> <span class="o">==</span> <span class="s">&quot;cleveland&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+    <span class="nf">select</span><span class="p">(</span><span class="o">-</span><span class="n">region</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shuffling rows of the data frame so that they are no longer ordered by region and are randomly ordered</span>
+<span class="nf">set.seed</span><span class="p">(</span><span class="m">999</span><span class="p">)</span> <span class="c1"># reproducible</span>
+
+<span class="n">rand_order</span> <span class="o">&lt;-</span> <span class="nf">sample</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">))</span> <span class="c1"># random ordering</span>
+<span class="n">heart_disease_data</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data</span><span class="p">[</span><span class="n">rand_order</span><span class="p">,]</span> <span class="c1"># shuffle the rows of the data frame</span>
+
+<span class="nf">head</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">)</span> <span class="c1"># view first few rows of data set</span>
+<span class="nf">tail</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">)</span> <span class="c1"># view last few rows of data set </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tibble: 6 × 6</caption>
+<thead>
+	<tr><th scope=col>age</th><th scope=col>trestbps</th><th scope=col>chol</th><th scope=col>thalach</th><th scope=col>oldpeak</th><th scope=col>presence</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>51</td><td>130</td><td>305</td><td>142</td><td>1.2</td><td>yes</td></tr>
+	<tr><td>65</td><td>155</td><td>269</td><td>148</td><td>0.8</td><td>no </td></tr>
+	<tr><td>59</td><td>170</td><td>288</td><td>159</td><td>0.2</td><td>yes</td></tr>
+	<tr><td>63</td><td>140</td><td>195</td><td>179</td><td>0.0</td><td>no </td></tr>
+	<tr><td>53</td><td>140</td><td>203</td><td>155</td><td>3.1</td><td>yes</td></tr>
+	<tr><td>60</td><td>102</td><td>318</td><td>160</td><td>0.0</td><td>no </td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table class="dataframe">
+<caption>A tibble: 6 × 6</caption>
+<thead>
+	<tr><th scope=col>age</th><th scope=col>trestbps</th><th scope=col>chol</th><th scope=col>thalach</th><th scope=col>oldpeak</th><th scope=col>presence</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>58</td><td>128</td><td>216</td><td>131</td><td>2.2</td><td>yes</td></tr>
+	<tr><td>54</td><td>160</td><td>201</td><td>163</td><td>0.0</td><td>no </td></tr>
+	<tr><td>43</td><td>115</td><td>303</td><td>181</td><td>1.2</td><td>no </td></tr>
+	<tr><td>60</td><td>140</td><td>185</td><td>155</td><td>3.0</td><td>yes</td></tr>
+	<tr><td>63</td><td>145</td><td>233</td><td>150</td><td>2.3</td><td>no </td></tr>
+	<tr><td>57</td><td>165</td><td>289</td><td>124</td><td>1.0</td><td>yes</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="splitting-summarizing-data">
+<h3>2.3 Splitting &amp; Summarizing data<a class="headerlink" href="#splitting-summarizing-data" title="Permalink to this headline">¶</a></h3>
+<p>We will be partitioning <code class="docutils literal notranslate"><span class="pre">heart_disease_data</span></code> into a training (75%) and testing (25%) set using the <code class="docutils literal notranslate"><span class="pre">tidymodels</span></code> package. We will then find the best k-nn classifier using the training set and evaluate the performance of our model on the test dataset. We will use the variable <code class="docutils literal notranslate"><span class="pre">presence</span></code> as our class label.</p>
+<div class="section" id="summary-statistics-only-using-training-data">
+<h4>Summary Statistics (only using training data)<a class="headerlink" href="#summary-statistics-only-using-training-data" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Count the number of patients with presence = 0 (heart disease absent), and presence = 1-4 (heart disease present)</p></li>
+<li><p>Calculate the summary statistics  mean, median, standard deviation, max, min for the numerical variables age, chol, trestbps.</p></li>
+<li><p>No missing data in the dataset.</p></li>
+<li><p>group_by <code class="docutils literal notranslate"><span class="pre">presence</span></code> to see the number of patients (each data row) with heart disease present/absent</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">heart_disease_data_split</span> <span class="o">&lt;-</span> <span class="nf">initial_split</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">,</span> <span class="n">prop</span> <span class="o">=</span> <span class="m">3</span><span class="o">/</span><span class="m">4</span><span class="p">,</span> <span class="n">strata</span> <span class="o">=</span> <span class="n">presence</span><span class="p">)</span>  
+<span class="n">heart_disease_data_train</span> <span class="o">&lt;-</span> <span class="nf">training</span><span class="p">(</span><span class="n">heart_disease_data_split</span><span class="p">)</span>   
+<span class="n">heart_disease_data_test</span> <span class="o">&lt;-</span> <span class="nf">testing</span><span class="p">(</span><span class="n">heart_disease_data_split</span><span class="p">)</span>
+
+<span class="n">count_by_presence</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data_train</span> <span class="o">%&gt;%</span>
+                      <span class="nf">group_by</span><span class="p">(</span><span class="n">presence</span><span class="p">)</span> <span class="o">%&gt;%</span>
+                      <span class="nf">summarise</span><span class="p">(</span><span class="n">count</span> <span class="o">=</span> <span class="nf">n</span><span class="p">())</span>
+
+<span class="n">count_by_presence</span> 
+
+<span class="c1"># select the numerical columns of age, chol, trestbps</span>
+<span class="n">heart_disease_data_train_num</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data_train</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="o">-</span><span class="n">presence</span><span class="p">)</span>
+
+<span class="n">heart_disease_data_train</span> 
+
+<span class="c1"># Data Summary Table</span>
+
+<span class="n">heart_disease_data_mean</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data_train_num</span> <span class="o">%&gt;%</span> <span class="nf">summarize</span><span class="p">(</span><span class="nf">across</span><span class="p">(</span><span class="n">age</span><span class="o">:</span><span class="n">oldpeak</span><span class="p">,</span> <span class="n">mean</span><span class="p">))</span>
+<span class="n">heart_disease_data_median</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data_train_num</span> <span class="o">%&gt;%</span> <span class="nf">summarize</span><span class="p">(</span><span class="nf">across</span><span class="p">(</span><span class="n">age</span><span class="o">:</span><span class="n">oldpeak</span><span class="p">,</span> <span class="n">median</span><span class="p">))</span>
+<span class="n">heart_disease_data_max</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data_train_num</span> <span class="o">%&gt;%</span> <span class="nf">summarize</span><span class="p">(</span><span class="nf">across</span><span class="p">(</span><span class="n">age</span><span class="o">:</span><span class="n">oldpeak</span><span class="p">,</span> <span class="n">max</span><span class="p">))</span>
+<span class="n">heart_disease_data_min</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data_train_num</span> <span class="o">%&gt;%</span> <span class="nf">summarize</span><span class="p">(</span><span class="nf">across</span><span class="p">(</span><span class="n">age</span><span class="o">:</span><span class="n">oldpeak</span><span class="p">,</span> <span class="n">min</span><span class="p">))</span>
+<span class="n">heart_disease_data_sd</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data_train_num</span> <span class="o">%&gt;%</span> <span class="nf">summarize</span><span class="p">(</span><span class="nf">across</span><span class="p">(</span><span class="n">age</span><span class="o">:</span><span class="n">oldpeak</span><span class="p">,</span> <span class="n">sd</span><span class="p">))</span>
+    
+<span class="n">heart_disease_data_max</span> <span class="o">=</span> <span class="n">heart_disease_data_max</span> <span class="o">%&gt;%</span>
+    <span class="nf">pivot_longer</span><span class="p">(</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="n">age</span><span class="o">:</span><span class="n">oldpeak</span><span class="p">,</span>
+        <span class="n">names_to</span> <span class="o">=</span> <span class="s">&quot;variable&quot;</span><span class="p">,</span>
+        <span class="n">values_to</span> <span class="o">=</span> <span class="s">&quot;max&quot;</span>
+    <span class="p">)</span>
+
+<span class="n">heart_disease_data_min</span> <span class="o">=</span> <span class="n">heart_disease_data_min</span> <span class="o">%&gt;%</span>
+    <span class="nf">pivot_longer</span><span class="p">(</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="n">age</span><span class="o">:</span><span class="n">oldpeak</span><span class="p">,</span>
+        <span class="n">names_to</span> <span class="o">=</span> <span class="s">&quot;variable&quot;</span><span class="p">,</span>
+        <span class="n">values_to</span> <span class="o">=</span> <span class="s">&quot;min&quot;</span>
+    <span class="p">)</span>
+
+<span class="n">heart_disease_data_mean</span> <span class="o">=</span> <span class="n">heart_disease_data_mean</span> <span class="o">%&gt;%</span>
+    <span class="nf">pivot_longer</span><span class="p">(</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="n">age</span><span class="o">:</span><span class="n">oldpeak</span><span class="p">,</span>
+        <span class="n">names_to</span> <span class="o">=</span> <span class="s">&quot;variable&quot;</span><span class="p">,</span>
+        <span class="n">values_to</span> <span class="o">=</span> <span class="s">&quot;mean&quot;</span>
+    <span class="p">)</span>
+
+<span class="n">heart_disease_data_median</span> <span class="o">=</span> <span class="n">heart_disease_data_median</span> <span class="o">%&gt;%</span>
+    <span class="nf">pivot_longer</span><span class="p">(</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="n">age</span><span class="o">:</span><span class="n">oldpeak</span><span class="p">,</span>
+        <span class="n">names_to</span> <span class="o">=</span> <span class="s">&quot;variable&quot;</span><span class="p">,</span>
+        <span class="n">values_to</span> <span class="o">=</span> <span class="s">&quot;median&quot;</span>
+    <span class="p">)</span>
+
+<span class="n">heart_disease_data_sd</span> <span class="o">=</span> <span class="n">heart_disease_data_sd</span> <span class="o">%&gt;%</span>
+    <span class="nf">pivot_longer</span><span class="p">(</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="n">age</span><span class="o">:</span><span class="n">oldpeak</span><span class="p">,</span>
+        <span class="n">names_to</span> <span class="o">=</span> <span class="s">&quot;variable&quot;</span><span class="p">,</span>
+        <span class="n">values_to</span> <span class="o">=</span> <span class="s">&quot;standard_deviation&quot;</span>
+    <span class="p">)</span>
+
+<span class="n">heart_disease_data_table</span> <span class="o">&lt;-</span> <span class="nf">merge</span><span class="p">(</span><span class="n">heart_disease_data_max</span><span class="p">,</span> <span class="n">heart_disease_data_min</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#39;variable&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+                            <span class="nf">merge</span><span class="p">(</span><span class="n">heart_disease_data_mean</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#39;variable&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+                            <span class="nf">merge</span><span class="p">(</span><span class="n">heart_disease_data_median</span><span class="p">,</span><span class="n">by</span> <span class="o">=</span> <span class="s">&#39;variable&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+                            <span class="nf">merge</span><span class="p">(</span><span class="n">heart_disease_data_sd</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s">&#39;variable&#39;</span><span class="p">)</span>
+<span class="n">heart_disease_data_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tibble: 2 × 2</caption>
+<thead>
+	<tr><th scope=col>presence</th><th scope=col>count</th></tr>
+	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>no </td><td>123</td></tr>
+	<tr><td>yes</td><td>104</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table class="dataframe">
+<caption>A tibble: 227 × 6</caption>
+<thead>
+	<tr><th scope=col>age</th><th scope=col>trestbps</th><th scope=col>chol</th><th scope=col>thalach</th><th scope=col>oldpeak</th><th scope=col>presence</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>65</td><td>155</td><td>269</td><td>148</td><td>0.8</td><td>no</td></tr>
+	<tr><td>63</td><td>140</td><td>195</td><td>179</td><td>0.0</td><td>no</td></tr>
+	<tr><td>60</td><td>102</td><td>318</td><td>160</td><td>0.0</td><td>no</td></tr>
+	<tr><td>57</td><td>132</td><td>207</td><td>168</td><td>0.0</td><td>no</td></tr>
+	<tr><td>46</td><td>142</td><td>177</td><td>160</td><td>1.4</td><td>no</td></tr>
+	<tr><td>62</td><td>128</td><td>208</td><td>140</td><td>0.0</td><td>no</td></tr>
+	<tr><td>39</td><td> 94</td><td>199</td><td>179</td><td>0.0</td><td>no</td></tr>
+	<tr><td>57</td><td>150</td><td>168</td><td>174</td><td>1.6</td><td>no</td></tr>
+	<tr><td>43</td><td>150</td><td>247</td><td>171</td><td>1.5</td><td>no</td></tr>
+	<tr><td>41</td><td>126</td><td>306</td><td>163</td><td>0.0</td><td>no</td></tr>
+	<tr><td>61</td><td>150</td><td>243</td><td>137</td><td>1.0</td><td>no</td></tr>
+	<tr><td>50</td><td>120</td><td>244</td><td>162</td><td>1.1</td><td>no</td></tr>
+	<tr><td>43</td><td>110</td><td>211</td><td>161</td><td>0.0</td><td>no</td></tr>
+	<tr><td>56</td><td>130</td><td>221</td><td>163</td><td>0.0</td><td>no</td></tr>
+	<tr><td>39</td><td>138</td><td>220</td><td>152</td><td>0.0</td><td>no</td></tr>
+	<tr><td>66</td><td>120</td><td>302</td><td>151</td><td>0.4</td><td>no</td></tr>
+	<tr><td>53</td><td>142</td><td>226</td><td>111</td><td>0.0</td><td>no</td></tr>
+	<tr><td>51</td><td> 94</td><td>227</td><td>154</td><td>0.0</td><td>no</td></tr>
+	<tr><td>66</td><td>160</td><td>228</td><td>138</td><td>2.3</td><td>no</td></tr>
+	<tr><td>70</td><td>156</td><td>245</td><td>143</td><td>0.0</td><td>no</td></tr>
+	<tr><td>52</td><td>136</td><td>196</td><td>169</td><td>0.1</td><td>no</td></tr>
+	<tr><td>51</td><td>100</td><td>222</td><td>143</td><td>1.2</td><td>no</td></tr>
+	<tr><td>56</td><td>120</td><td>240</td><td>169</td><td>0.0</td><td>no</td></tr>
+	<tr><td>58</td><td>140</td><td>211</td><td>165</td><td>0.0</td><td>no</td></tr>
+	<tr><td>41</td><td>120</td><td>157</td><td>182</td><td>0.0</td><td>no</td></tr>
+	<tr><td>58</td><td>100</td><td>248</td><td>122</td><td>1.0</td><td>no</td></tr>
+	<tr><td>62</td><td>140</td><td>394</td><td>157</td><td>1.2</td><td>no</td></tr>
+	<tr><td>44</td><td>130</td><td>219</td><td>188</td><td>0.0</td><td>no</td></tr>
+	<tr><td>51</td><td>110</td><td>175</td><td>123</td><td>0.6</td><td>no</td></tr>
+	<tr><td>59</td><td>140</td><td>221</td><td>164</td><td>0.0</td><td>no</td></tr>
+	<tr><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
+	<tr><td>49</td><td>120</td><td>188</td><td>139</td><td>2.0</td><td>yes</td></tr>
+	<tr><td>59</td><td>126</td><td>218</td><td>134</td><td>2.2</td><td>yes</td></tr>
+	<tr><td>57</td><td>152</td><td>274</td><td> 88</td><td>1.2</td><td>yes</td></tr>
+	<tr><td>68</td><td>144</td><td>193</td><td>141</td><td>3.4</td><td>yes</td></tr>
+	<tr><td>38</td><td>120</td><td>231</td><td>182</td><td>3.8</td><td>yes</td></tr>
+	<tr><td>60</td><td>130</td><td>253</td><td>144</td><td>1.4</td><td>yes</td></tr>
+	<tr><td>47</td><td>110</td><td>275</td><td>118</td><td>1.0</td><td>yes</td></tr>
+	<tr><td>55</td><td>128</td><td>205</td><td>130</td><td>2.0</td><td>yes</td></tr>
+	<tr><td>46</td><td>120</td><td>249</td><td>144</td><td>0.8</td><td>yes</td></tr>
+	<tr><td>70</td><td>145</td><td>174</td><td>125</td><td>2.6</td><td>yes</td></tr>
+	<tr><td>55</td><td>160</td><td>289</td><td>145</td><td>0.8</td><td>yes</td></tr>
+	<tr><td>63</td><td>140</td><td>187</td><td>144</td><td>4.0</td><td>yes</td></tr>
+	<tr><td>63</td><td>130</td><td>330</td><td>132</td><td>1.8</td><td>yes</td></tr>
+	<tr><td>64</td><td>120</td><td>246</td><td> 96</td><td>2.2</td><td>yes</td></tr>
+	<tr><td>56</td><td>200</td><td>288</td><td>133</td><td>4.0</td><td>yes</td></tr>
+	<tr><td>61</td><td>145</td><td>307</td><td>146</td><td>1.0</td><td>yes</td></tr>
+	<tr><td>44</td><td>120</td><td>169</td><td>144</td><td>2.8</td><td>yes</td></tr>
+	<tr><td>56</td><td>125</td><td>249</td><td>144</td><td>1.2</td><td>yes</td></tr>
+	<tr><td>58</td><td>114</td><td>318</td><td>140</td><td>4.4</td><td>yes</td></tr>
+	<tr><td>61</td><td>140</td><td>207</td><td>138</td><td>1.9</td><td>yes</td></tr>
+	<tr><td>69</td><td>140</td><td>254</td><td>146</td><td>2.0</td><td>yes</td></tr>
+	<tr><td>40</td><td>110</td><td>167</td><td>114</td><td>2.0</td><td>yes</td></tr>
+	<tr><td>39</td><td>118</td><td>219</td><td>140</td><td>1.2</td><td>yes</td></tr>
+	<tr><td>66</td><td>178</td><td>228</td><td>165</td><td>1.0</td><td>yes</td></tr>
+	<tr><td>64</td><td>145</td><td>212</td><td>132</td><td>2.0</td><td>yes</td></tr>
+	<tr><td>58</td><td>136</td><td>319</td><td>152</td><td>0.0</td><td>yes</td></tr>
+	<tr><td>68</td><td>180</td><td>274</td><td>150</td><td>1.6</td><td>yes</td></tr>
+	<tr><td>58</td><td>128</td><td>216</td><td>131</td><td>2.2</td><td>yes</td></tr>
+	<tr><td>60</td><td>140</td><td>185</td><td>155</td><td>3.0</td><td>yes</td></tr>
+	<tr><td>57</td><td>165</td><td>289</td><td>124</td><td>1.0</td><td>yes</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 5 × 6</caption>
+<thead>
+	<tr><th scope=col>variable</th><th scope=col>max</th><th scope=col>min</th><th scope=col>mean</th><th scope=col>median</th><th scope=col>standard_deviation</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>age     </td><td> 74.0</td><td> 35</td><td> 54.83260</td><td> 56.0</td><td> 8.898056</td></tr>
+	<tr><td>chol    </td><td>564.0</td><td>131</td><td>243.00000</td><td>237.0</td><td>51.172708</td></tr>
+	<tr><td>oldpeak </td><td>  6.2</td><td>  0</td><td>  1.02467</td><td>  0.6</td><td> 1.170398</td></tr>
+	<tr><td>thalach </td><td>195.0</td><td> 71</td><td>148.58150</td><td>152.0</td><td>22.895998</td></tr>
+	<tr><td>trestbps</td><td>200.0</td><td> 94</td><td>131.10132</td><td>130.0</td><td>18.044766</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="visualization-using-training-data">
+<h3>2.4 Visualization (using training data)<a class="headerlink" href="#visualization-using-training-data" title="Permalink to this headline">¶</a></h3>
+<p>We will create histograms for each of the five attributes under consideration - <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">chol</span></code>, <code class="docutils literal notranslate"><span class="pre">oldpeak</span></code>, <code class="docutils literal notranslate"><span class="pre">thalach</span></code>, <code class="docutils literal notranslate"><span class="pre">trestbps</span></code> to see the count of the number of patients with heart disease present or absent against each factor under consideration.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">repr.plot.height</span> <span class="o">=</span> <span class="m">7</span><span class="p">)</span>
+
+<span class="c1"># Presence/absence based on age</span>
+<span class="n">heart_disease_data_train_age_plot</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">heart_disease_data_train</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">age</span><span class="p">))</span> <span class="o">+</span>
+                                    <span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">presence</span><span class="p">),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Age in years&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;# of patients&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s">&quot;Presence of heart Disease&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                    <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">18</span><span class="p">))</span> <span class="o">+</span>
+                                    <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 1. Count of patients vs age (years)&quot;</span><span class="p">)</span>
+<span class="n">heart_disease_data_train_age_plot</span>
+
+<span class="c1"># Presence/absence based on cholestrol</span>
+<span class="n">heart_disease_data_train_chol_plot</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">heart_disease_data_train</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">chol</span><span class="p">))</span> <span class="o">+</span>
+                                    <span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">presence</span><span class="p">),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Serum cholestoral in mg/dl&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;# of patients&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s">&quot;Presence of heart Disease&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                    <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">18</span><span class="p">))</span> <span class="o">+</span>
+                                    <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 2. Count of patients vs serum cholestoral(mg/dl)&quot;</span><span class="p">)</span>
+<span class="n">heart_disease_data_train_chol_plot</span>
+
+
+<span class="c1"># Presence/absence based on resting blood pressure</span>
+<span class="n">heart_disease_data_train_trestbps_plot</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">heart_disease_data_train</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">trestbps</span><span class="p">))</span> <span class="o">+</span>
+                                    <span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">presence</span><span class="p">),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Resting blood pressure (in mm Hg)&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;# of patients&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s">&quot;Presence of heart Disease&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                    <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">18</span><span class="p">))</span> <span class="o">+</span>
+                                    <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 3. Count of patients vs resting blood pressure (in mm Hg)&quot;</span><span class="p">)</span>
+<span class="n">heart_disease_data_train_trestbps_plot</span>
+
+<span class="c1"># Presence/absence based on maximum heart rate achieved</span>
+<span class="n">heart_disease_data_train_thalach_plot</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">heart_disease_data_train</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">thalach</span><span class="p">))</span> <span class="o">+</span>
+                                    <span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">presence</span><span class="p">),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;maximum heart rate achieved&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;# of patients&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s">&quot;Presence of heart Disease&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                    <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">18</span><span class="p">))</span> <span class="o">+</span>
+                                    <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 4. Count of patients vs maximum heart rate achieved&quot;</span><span class="p">)</span>
+<span class="n">heart_disease_data_train_thalach_plot</span>
+
+<span class="c1"># Presence/absence based on ST depression induced by exercise relative to rest</span>
+<span class="n">heart_disease_data_train_oldpeak_plot</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">heart_disease_data_train</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">oldpeak</span><span class="p">))</span> <span class="o">+</span>
+                                    <span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">presence</span><span class="p">),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;ST depression induced by exercise relative to rest&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;# of patients&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s">&quot;Presence of heart Disease&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                    <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">18</span><span class="p">))</span> <span class="o">+</span>
+                                    <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 5. Count of patients vs ST depression induced by exercise wrt rest&quot;</span><span class="p">)</span>
+<span class="n">heart_disease_data_train_oldpeak_plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+</pre></div>
+</div>
+<img alt="_images/group_project_report_13_2.png" src="_images/group_project_report_13_2.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+</pre></div>
+</div>
+<img alt="_images/group_project_report_13_4.png" src="_images/group_project_report_13_4.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+</pre></div>
+</div>
+<img alt="_images/group_project_report_13_6.png" src="_images/group_project_report_13_6.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+</pre></div>
+</div>
+<img alt="_images/group_project_report_13_8.png" src="_images/group_project_report_13_8.png" />
+<img alt="_images/group_project_report_13_9.png" src="_images/group_project_report_13_9.png" />
+</div>
+</div>
+</div>
+<div class="section" id="scatterplot-of-two-variables-at-a-time-eda">
+<h3>2.5 Scatterplot of two variables at a time (EDA)<a class="headerlink" href="#scatterplot-of-two-variables-at-a-time-eda" title="Permalink to this headline">¶</a></h3>
+<p>Here, will we do some exploratory data analysis, where for all the 5 variables - <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">chol</span></code>, <code class="docutils literal notranslate"><span class="pre">oldpeak</span></code>, <code class="docutils literal notranslate"><span class="pre">thalach</span></code>, <code class="docutils literal notranslate"><span class="pre">trestbps</span></code>, we will plot scatterplots for a combination of 2 variables at a time. Hence, we will plot 10 scatterplots in total.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span> <span class="o">=</span> <span class="m">8</span><span class="p">,</span> <span class="n">repr.plot.height</span> <span class="o">=</span> <span class="m">5</span><span class="p">)</span>
+
+<span class="c1"># scale the variables </span>
+<span class="n">heart_disease_data_scaled</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">age</span> <span class="o">=</span> <span class="nf">scale</span><span class="p">(</span><span class="n">age</span><span class="p">),</span> <span class="n">chol</span> <span class="o">=</span> <span class="nf">scale</span><span class="p">(</span><span class="n">chol</span><span class="p">),</span> <span class="n">trestbps</span> <span class="o">=</span> <span class="nf">scale</span><span class="p">(</span><span class="n">trestbps</span><span class="p">),</span> <span class="n">thalach</span> <span class="o">=</span> <span class="nf">scale</span><span class="p">(</span><span class="n">thalach</span><span class="p">),</span> <span class="n">oldpeak</span> <span class="o">=</span> <span class="nf">scale</span><span class="p">(</span><span class="n">oldpeak</span><span class="p">))</span>
+
+<span class="c1"># 5 variables, 2 each time =&gt; 10 scatterplots </span>
+
+<span class="c1"># Age vs Chol</span>
+<span class="n">age_chol</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data_scaled</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">age</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">chol</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">presence</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Age (scaled)&quot;</span><span class="p">,</span> 
+       <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;Cholesterol (scaled)&quot;</span><span class="p">,</span>
+       <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;Presence&quot;</span><span class="p">)</span> <span class="o">+</span>
+       <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">20</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 6. Age vs Cholestrol&quot;</span><span class="p">)</span>
+<span class="n">age_chol</span>
+
+<span class="c1"># Age vs Trestbps</span>
+<span class="n">age_trestbps</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data_scaled</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">age</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">trestbps</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">presence</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Age (scaled)&quot;</span><span class="p">,</span> 
+       <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;Trestbps(scaled)&quot;</span><span class="p">,</span>
+       <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;Presence&quot;</span><span class="p">)</span> <span class="o">+</span>
+       <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">20</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 7. Age vs Trestbps&quot;</span><span class="p">)</span>
+<span class="n">age_trestbps</span>
+
+<span class="c1"># Age vs Thalach</span>
+<span class="n">age_thalach</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data_scaled</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">age</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">thalach</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">presence</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Age (scaled)&quot;</span><span class="p">,</span> 
+       <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;Thalach (scaled)&quot;</span><span class="p">,</span>
+       <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;Presence&quot;</span><span class="p">)</span> <span class="o">+</span>
+       <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">20</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 8. Age vs Thalach&quot;</span><span class="p">)</span> 
+<span class="n">age_thalach</span>
+
+<span class="c1"># Age vs Oldpeak</span>
+<span class="n">age_oldpeak</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data_scaled</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">age</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">oldpeak</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">presence</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Age (scaled)&quot;</span><span class="p">,</span> 
+       <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;Oldpeak(scaled)&quot;</span><span class="p">,</span>
+       <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;Presence&quot;</span><span class="p">)</span> <span class="o">+</span>
+       <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">20</span><span class="p">))</span>  <span class="o">+</span>
+  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 9. Age vs Oldpeak&quot;</span><span class="p">)</span>
+<span class="n">age_oldpeak</span>
+
+<span class="c1"># Chol vs Trestbps</span>
+<span class="n">chol_trestbps</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data_scaled</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">chol</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">trestbps</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">presence</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Cholesterol (scaled)&quot;</span><span class="p">,</span> 
+       <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;Trestbps (scaled)&quot;</span><span class="p">,</span>
+       <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;Presence&quot;</span><span class="p">)</span> <span class="o">+</span>
+       <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">20</span><span class="p">))</span>  <span class="o">+</span>
+  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 10. Cholesterol vs Trestbps&quot;</span><span class="p">)</span>
+<span class="n">chol_trestbps</span>
+
+<span class="c1"># Chol vs Thalach</span>
+<span class="n">chol_thalach</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data_scaled</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">chol</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">thalach</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">presence</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Cholesterol (scaled)&quot;</span><span class="p">,</span> 
+       <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;Thalach (scaled)&quot;</span><span class="p">,</span>
+       <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;Presence&quot;</span><span class="p">)</span> <span class="o">+</span>
+       <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">20</span><span class="p">))</span>  <span class="o">+</span>
+  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 11. Cholesterol vs Thalach&quot;</span><span class="p">)</span>
+<span class="n">chol_thalach</span>
+
+<span class="c1"># Chol vs Oldpeak</span>
+<span class="n">chol_oldpeak</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data_scaled</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">chol</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">oldpeak</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">presence</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Cholesterol (scaled)&quot;</span><span class="p">,</span> 
+       <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;Oldpeak (scaled)&quot;</span><span class="p">,</span>
+       <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;Presence&quot;</span><span class="p">)</span> <span class="o">+</span>
+       <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">20</span><span class="p">))</span>  <span class="o">+</span>
+  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 12. Cholesterol vs Oldpeak&quot;</span><span class="p">)</span>
+<span class="n">chol_oldpeak</span>
+
+<span class="c1"># Thalach vs Trestbps</span>
+<span class="n">thalach_trestbps</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data_scaled</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">thalach</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">trestbps</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">presence</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Thalach (scaled)&quot;</span><span class="p">,</span> 
+       <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;Trestbps (scaled)&quot;</span><span class="p">,</span>
+       <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;Presence&quot;</span><span class="p">)</span> <span class="o">+</span>
+       <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">20</span><span class="p">))</span>  <span class="o">+</span>
+  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 13. Thalach vs Trestbps&quot;</span><span class="p">)</span>
+<span class="n">thalach_trestbps</span>
+
+<span class="c1"># Thalach vs Oldpeak</span>
+<span class="n">thalach_oldpeak</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data_scaled</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">thalach</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">oldpeak</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">presence</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Thalach (scaled)&quot;</span><span class="p">,</span> 
+       <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;Oldpeak (scaled)&quot;</span><span class="p">,</span>
+       <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;Presence&quot;</span><span class="p">)</span> <span class="o">+</span>
+       <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">20</span><span class="p">))</span>  <span class="o">+</span>
+  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 14. Thalach vs Oldpeak&quot;</span><span class="p">)</span>
+<span class="n">thalach_oldpeak</span>
+
+<span class="c1"># Oldpeak vs Trestbps</span>
+<span class="n">oldpeak_trestbps</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data_scaled</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">oldpeak</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">trestbps</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">presence</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Oldpeak (scaled)&quot;</span><span class="p">,</span> 
+       <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;Trestbps (scaled)&quot;</span><span class="p">,</span>
+       <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;Presence&quot;</span><span class="p">)</span> <span class="o">+</span>
+       <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">20</span><span class="p">))</span>  <span class="o">+</span>
+  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 15. Oldpeak vs Trestbps&quot;</span><span class="p">)</span>
+<span class="n">oldpeak_trestbps</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/group_project_report_15_0.png" src="_images/group_project_report_15_0.png" />
+<img alt="_images/group_project_report_15_1.png" src="_images/group_project_report_15_1.png" />
+<img alt="_images/group_project_report_15_2.png" src="_images/group_project_report_15_2.png" />
+<img alt="_images/group_project_report_15_3.png" src="_images/group_project_report_15_3.png" />
+<img alt="_images/group_project_report_15_4.png" src="_images/group_project_report_15_4.png" />
+<img alt="_images/group_project_report_15_5.png" src="_images/group_project_report_15_5.png" />
+<img alt="_images/group_project_report_15_6.png" src="_images/group_project_report_15_6.png" />
+<img alt="_images/group_project_report_15_7.png" src="_images/group_project_report_15_7.png" />
+<img alt="_images/group_project_report_15_8.png" src="_images/group_project_report_15_8.png" />
+<img alt="_images/group_project_report_15_9.png" src="_images/group_project_report_15_9.png" />
+</div>
+</div>
+<p>We can see that <code class="docutils literal notranslate"><span class="pre">Age</span></code> vs <code class="docutils literal notranslate"><span class="pre">Thalach</span></code>, <code class="docutils literal notranslate"><span class="pre">Age</span></code> vs <code class="docutils literal notranslate"><span class="pre">Oldpeak</span></code>, <code class="docutils literal notranslate"><span class="pre">Oldpeak</span></code> vs <code class="docutils literal notranslate"><span class="pre">Thalach</span></code> are still the best variables that can successfully distinguish between presence and absence of heart disease without getting stacked(overlapped) on top of each other, thus helping in effective classificiation.</p>
+</div>
+<div class="section" id="eda-using-ggpairs">
+<h3>2.6 EDA (using ggpairs)<a class="headerlink" href="#eda-using-ggpairs" title="Permalink to this headline">¶</a></h3>
+<p>We will examine the relationships between our 5 predictor attributes - <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">chol</span></code>, <code class="docutils literal notranslate"><span class="pre">oldpeak</span></code>, <code class="docutils literal notranslate"><span class="pre">thalach</span></code>, <code class="docutils literal notranslate"><span class="pre">trestbps</span></code> and the predicted attribute <code class="docutils literal notranslate"><span class="pre">presence</span></code> to select the most relevant attributes for our classification model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span> <span class="o">=</span> <span class="m">15</span><span class="p">,</span> <span class="n">repr.plot.height</span> <span class="o">=</span> <span class="m">18</span><span class="p">)</span>
+
+<span class="c1">#scatterplot matrix (ggpairs) with all categorical variables</span>
+<span class="n">multivariate_plot</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data</span> <span class="o">%&gt;%</span>
+    <span class="nf">ggpairs</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">ggplot2</span><span class="o">::</span><span class="nf">aes</span><span class="p">(</span><span class="n">colour</span> <span class="o">=</span> <span class="n">presence</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">))</span> <span class="o">+</span>  
+    <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.x</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="m">45</span><span class="p">,</span> <span class="n">hjust</span> <span class="o">=</span> <span class="m">1</span><span class="p">))</span> <span class="o">+</span> 
+    <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">16</span><span class="p">))</span> <span class="o">+</span>
+    <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 16. Multivariate Analysis for Heart Disease Data&quot;</span><span class="p">)</span>
+
+<span class="n">multivariate_plot</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+</pre></div>
+</div>
+<img alt="_images/group_project_report_18_5.png" src="_images/group_project_report_18_5.png" />
+</div>
+</div>
+<p>From the plot above we can see that <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">thalach</span></code>, and <code class="docutils literal notranslate"><span class="pre">oldpeak</span></code> are the best three attributes which do not have overlapping plots and can help distinguish between the presence and absense of heart disease in a patient and can therefore be use effectively in training our classificiation model.</p>
+</div>
+</div>
+<div class="section" id="classification">
+<h2>3. Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h2>
+<p>Many physiological attributes have been shown through studies and reports by the CDC and WHO to have strong links to heart disease. After filtering out categorical variables and examining the data using <code class="docutils literal notranslate"><span class="pre">ggpairs</span></code>, we have chosen the three most relevant out of the five numerical values in our dataset to analyze: <code class="docutils literal notranslate"><span class="pre">thalach</span></code> (maximum heart rate achieved), <code class="docutils literal notranslate"><span class="pre">oldpeak</span></code> (ST depression induced by exercise relative to rest), and <code class="docutils literal notranslate"><span class="pre">age</span></code> (age in years). Using ggpairs, we can see that <code class="docutils literal notranslate"><span class="pre">oldpeak</span></code>, <code class="docutils literal notranslate"><span class="pre">thalach</span></code>, and <code class="docutils literal notranslate"><span class="pre">age</span></code> work better in helping distinguish the classification between the presence and absense of heart disease as their plots do not completely overlap. Using our chosen variables, we will construct and test a classifier using the KNN classification model and choose an appropriate k using cross-validation.</p>
+<div class="section" id="creating-the-model-and-recipe">
+<h3>3.1 Creating the model and recipe<a class="headerlink" href="#creating-the-model-and-recipe" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#Creating model and recipe</span>
+
+<span class="n">knn_spec</span> <span class="o">&lt;-</span> <span class="nf">nearest_neighbor</span><span class="p">(</span><span class="n">weight_func</span> <span class="o">=</span> <span class="s">&quot;rectangular&quot;</span><span class="p">,</span> <span class="n">neighbors</span> <span class="o">=</span> <span class="nf">tune</span><span class="p">())</span> <span class="o">%&gt;%</span>
+  <span class="nf">set_engine</span><span class="p">(</span><span class="s">&quot;kknn&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">set_mode</span><span class="p">(</span><span class="s">&quot;classification&quot;</span><span class="p">)</span>
+
+
+<span class="n">hd_recipe</span> <span class="o">&lt;-</span> <span class="nf">recipe</span><span class="p">(</span><span class="n">presence</span> <span class="o">~</span> <span class="n">age</span> <span class="o">+</span> <span class="n">oldpeak</span> <span class="o">+</span> <span class="n">thalach</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">heart_disease_data_train</span><span class="p">)</span> <span class="o">%&gt;%</span>
+                        <span class="nf">step_scale</span><span class="p">(</span><span class="nf">all_predictors</span><span class="p">())</span> <span class="o">%&gt;%</span>
+                        <span class="nf">step_center</span><span class="p">(</span><span class="nf">all_predictors</span><span class="p">())</span>
+
+<span class="n">hd_recipe</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Recipe
+
+Inputs:
+
+      role #variables
+   outcome          1
+ predictor          3
+
+Operations:
+
+Scaling for all_predictors()
+Centering for all_predictors()
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="performing-cross-validation-and-determining-which-k-to-use">
+<h3>3.2 Performing cross-validation and determining which k to use<a class="headerlink" href="#performing-cross-validation-and-determining-which-k-to-use" title="Permalink to this headline">¶</a></h3>
+<p>Finding the best K for KNN by varying K from 1 to 125 in increments of 2 and running a 5-fold cross validation. We will then filter the maximum accuracy neighbour and see if it is the right K to choose using the plot below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">set.seed</span><span class="p">(</span><span class="m">999</span><span class="p">)</span>
+<span class="n">hd_vfold</span> <span class="o">&lt;-</span> <span class="nf">vfold_cv</span><span class="p">(</span><span class="n">heart_disease_data_train</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="m">5</span><span class="p">,</span> <span class="n">strata</span> <span class="o">=</span> <span class="n">presence</span><span class="p">)</span>
+
+<span class="n">k_vals</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">(</span><span class="n">neighbors</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="m">125</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="m">2</span><span class="p">))</span>
+
+<span class="c1"># workflow </span>
+<span class="n">knn_results</span> <span class="o">&lt;-</span> <span class="nf">workflow</span><span class="p">()</span> <span class="o">%&gt;%</span>
+                 <span class="nf">add_recipe</span><span class="p">(</span><span class="n">hd_recipe</span><span class="p">)</span> <span class="o">%&gt;%</span>
+                 <span class="nf">add_model</span><span class="p">(</span><span class="n">knn_spec</span><span class="p">)</span> <span class="o">%&gt;%</span>
+                 <span class="nf">tune_grid</span><span class="p">(</span><span class="n">resamples</span> <span class="o">=</span> <span class="n">hd_vfold</span><span class="p">,</span> <span class="n">grid</span> <span class="o">=</span> <span class="n">k_vals</span><span class="p">)</span> <span class="o">%&gt;%</span>
+                 <span class="nf">collect_metrics</span><span class="p">()</span>
+
+<span class="c1">## accuracies for all the neighbours of k =1 to k = 125 in increments of 2</span>
+<span class="n">accuracies</span> <span class="o">&lt;-</span> <span class="n">knn_results</span> <span class="o">%&gt;%</span>
+                 <span class="nf">filter</span><span class="p">(</span><span class="n">.metric</span> <span class="o">==</span> <span class="s">&quot;accuracy&quot;</span><span class="p">)</span>
+<span class="n">accuracies</span>
+
+<span class="c1">## maximum accuracy </span>
+<span class="n">max_accuracy</span> <span class="o">&lt;-</span> <span class="n">accuracies</span> <span class="o">%&gt;%</span>
+                    <span class="nf">filter</span><span class="p">(</span><span class="n">mean</span> <span class="o">==</span> <span class="nf">max</span><span class="p">(</span><span class="n">mean</span><span class="p">))</span>
+<span class="n">max_accuracy</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plot-of-k-vs-accuracy-to-choose-the-most-optimal-k-value">
+<h3>3.3 Plot of K vs Accuracy to choose the most optimal K value<a class="headerlink" href="#plot-of-k-vs-accuracy-to-choose-the-most-optimal-k-value" title="Permalink to this headline">¶</a></h3>
+<p>As we can see from above we get the maximum accuracy at k = 59. We will examine the plot below to determine the most optimal K.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">repr.plot.height</span> <span class="o">=</span> <span class="m">8</span><span class="p">)</span>
+
+<span class="n">cross_val_plot</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">accuracies</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">neighbors</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mean</span><span class="p">))</span> <span class="o">+</span>
+                  <span class="nf">geom_point</span><span class="p">()</span> <span class="o">+</span>
+                  <span class="nf">geom_line</span><span class="p">()</span> <span class="o">+</span>
+                  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&#39;Neighbors&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">&#39;Accuracy Estimate&#39;</span><span class="p">)</span> <span class="o">+</span>
+                  <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">18</span><span class="p">))</span> <span class="o">+</span>
+                  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 17. Plot to choose K&quot;</span><span class="p">)</span>
+<span class="n">cross_val_plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/group_project_report_25_0.png" src="_images/group_project_report_25_0.png" />
+</div>
+</div>
+<p>From the plot above, we see that the plot seems to oscillate a lot as the number of neighbors increases. This is likely because the dataset is small (only ~300 rows of data) which is why the model is trying to gather as much information possible by having more neighbors. However we notice that k = 59 is the optimal choice of K since it gives us the maximum accuracy and is also a reasonably right number of neighbors to avoid underfitting or overfitting. Cost of training will not be very expensive either since k is not too large but optimal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># spec with num of neighbors = 21</span>
+<span class="n">knn_spec2</span> <span class="o">&lt;-</span> <span class="nf">nearest_neighbor</span><span class="p">(</span><span class="n">weight_func</span> <span class="o">=</span> <span class="s">&quot;rectangular&quot;</span><span class="p">,</span> <span class="n">neighbors</span> <span class="o">=</span> <span class="m">21</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">set_engine</span><span class="p">(</span><span class="s">&quot;kknn&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">set_mode</span><span class="p">(</span><span class="s">&quot;classification&quot;</span><span class="p">)</span>
+
+<span class="n">hd_fit</span> <span class="o">&lt;-</span> <span class="nf">workflow </span><span class="p">()</span> <span class="o">%&gt;%</span>
+                  <span class="nf">add_recipe</span><span class="p">(</span><span class="n">hd_recipe</span><span class="p">)</span> <span class="o">%&gt;%</span>
+                  <span class="nf">add_model</span><span class="p">(</span><span class="n">knn_spec2</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+                  <span class="nf">fit</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">heart_disease_data_train</span><span class="p">)</span>
+<span class="n">hd_fit</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>== Workflow [trained] ==========================================================
+Preprocessor: Recipe
+Model: nearest_neighbor()
+
+-- Preprocessor ----------------------------------------------------------------
+2 Recipe Steps
+
+* step_scale()
+* step_center()
+
+-- Model -----------------------------------------------------------------------
+
+Call:
+kknn::train.kknn(formula = ..y ~ ., data = data, ks = min_rows(21,     data, 5), kernel = ~&quot;rectangular&quot;)
+
+Type of response variable: nominal
+Minimal misclassification: 0.2995595
+Best kernel: rectangular
+Best k: 21
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">hd_test_predictions</span> <span class="o">&lt;-</span> <span class="nf">predict</span><span class="p">(</span><span class="n">hd_fit</span><span class="p">,</span> <span class="n">heart_disease_data_test</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">bind_cols</span><span class="p">(</span><span class="n">heart_disease_data_test</span><span class="p">)</span>
+
+<span class="n">hd_metrics</span> <span class="o">&lt;-</span> <span class="n">hd_test_predictions</span> <span class="o">%&gt;%</span> 
+                <span class="nf">metrics</span><span class="p">(</span><span class="n">truth</span> <span class="o">=</span> <span class="n">presence</span><span class="p">,</span> <span class="n">estimate</span> <span class="o">=</span> <span class="n">.pred_class</span><span class="p">)</span> <span class="o">%&gt;%</span>
+                <span class="nf">filter</span><span class="p">(</span><span class="n">.metric</span> <span class="o">==</span> <span class="s">&quot;accuracy&quot;</span><span class="p">)</span>
+
+<span class="n">hd_conf_mat</span> <span class="o">&lt;-</span> <span class="n">hd_test_predictions</span> <span class="o">%&gt;%</span>
+                        <span class="nf">conf_mat</span><span class="p">(</span><span class="n">truth</span> <span class="o">=</span> <span class="n">presence</span><span class="p">,</span> <span class="n">estimate</span> <span class="o">=</span> <span class="n">.pred_class</span><span class="p">)</span> 
+
+<span class="n">hd_metrics</span>
+<span class="n">hd_conf_mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tibble: 1 × 3</caption>
+<thead>
+	<tr><th scope=col>.metric</th><th scope=col>.estimator</th><th scope=col>.estimate</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>accuracy</td><td>binary</td><td>0.7894737</td></tr>
+</tbody>
+</table>
+</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          Truth
+Prediction no yes
+       no  37  12
+       yes  4  23
+</pre></div>
+</div>
+</div>
+</div>
+<p>From our metrics and confusion matrix above, we can see that our model is about 78.9% accurate. Of the 76 observations in our test data, 60 (37 + 23) of them are correctly classified. 16 of them were either false positives or false negatives, with the two being in a 1:3 ratio.</p>
+</div>
+<div class="section" id="comparing-presence-to-predicted-presence">
+<h3>3.4 Comparing presence to predicted presence<a class="headerlink" href="#comparing-presence-to-predicted-presence" title="Permalink to this headline">¶</a></h3>
+<p>In the following graphs, we look at the actual presence values on the left plots, and the predicted presence values (from our model) on the right plots. These are scatterplots between two attributes at a time from the three attributes - <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">thalach</span></code>, <code class="docutils literal notranslate"><span class="pre">oldpeak</span></code> - that we used in our classification model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">cowplot</span><span class="p">)</span>
+<span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span> <span class="o">=</span> <span class="m">18</span><span class="p">,</span> <span class="n">repr.plot.height</span> <span class="o">=</span> <span class="m">7</span><span class="p">)</span>
+
+<span class="n">age_thalach_plot</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">hd_test_predictions</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">age</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">thalach</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">presence</span><span class="p">))</span> <span class="o">+</span>
+            <span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">)</span> <span class="o">+</span>
+            <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Age (years)&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;Maximum heart rate achieved (bpm)&quot;</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="s">&quot;Presence&quot;</span><span class="p">)</span> <span class="o">+</span> 
+            <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">18</span><span class="p">))</span> <span class="o">+</span>
+            <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 18. Actual presence value&quot;</span><span class="p">)</span>
+
+
+<span class="n">age_thalach_preds</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">hd_test_predictions</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">age</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">thalach</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">.pred_class</span><span class="p">))</span> <span class="o">+</span>
+            <span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">)</span> <span class="o">+</span>
+            <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Age (years)&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;Maximum heart rate achieved (bpm)&quot;</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="s">&quot;Predicted presence&quot;</span><span class="p">)</span> <span class="o">+</span> 
+            <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">18</span><span class="p">))</span> <span class="o">+</span>
+            <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 19. Predicted presence value&quot;</span><span class="p">)</span>
+
+<span class="nf">plot_grid</span><span class="p">(</span><span class="n">age_thalach_plot</span><span class="p">,</span> <span class="n">age_thalach_preds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/group_project_report_31_0.png" src="_images/group_project_report_31_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span> <span class="o">=</span> <span class="m">18</span><span class="p">,</span> <span class="n">repr.plot.height</span> <span class="o">=</span> <span class="m">7</span><span class="p">)</span>
+
+<span class="n">oldpeak_thalach_plot</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">hd_test_predictions</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">oldpeak</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">thalach</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">presence</span><span class="p">))</span> <span class="o">+</span>
+            <span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">)</span> <span class="o">+</span>
+            <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;ST depression induced by exercise relative to rest (mm)&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;Maximum heart rate achieved (bpm)&quot;</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="s">&quot;Presence&quot;</span><span class="p">)</span> <span class="o">+</span> 
+            <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">18</span><span class="p">))</span> <span class="o">+</span>
+            <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 20. Actual presence value&quot;</span><span class="p">)</span>
+
+<span class="n">oldpeak_thalach_preds</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">hd_test_predictions</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">oldpeak</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">thalach</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">.pred_class</span><span class="p">))</span> <span class="o">+</span>
+            <span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">)</span> <span class="o">+</span>
+            <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;ST depression induced by exercise relative to rest (mm)&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;Maximum heart rate achieved (bpm)&quot;</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="s">&quot;Predicted presence&quot;</span><span class="p">)</span> <span class="o">+</span> 
+            <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">18</span><span class="p">))</span> <span class="o">+</span>
+            <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 21. Predicted presence value&quot;</span><span class="p">)</span>
+<span class="nf">plot_grid</span><span class="p">(</span><span class="n">oldpeak_thalach_plot</span><span class="p">,</span> <span class="n">oldpeak_thalach_preds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/group_project_report_32_0.png" src="_images/group_project_report_32_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span> <span class="o">=</span> <span class="m">18</span><span class="p">,</span> <span class="n">repr.plot.height</span> <span class="o">=</span> <span class="m">7</span><span class="p">)</span>
+
+<span class="n">age_oldpeak_plot</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">hd_test_predictions</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">age</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">oldpeak</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">presence</span><span class="p">))</span> <span class="o">+</span>
+            <span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">)</span> <span class="o">+</span>
+            <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Age (years)&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;ST depression induced by exercise relative to rest (mm)&quot;</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="s">&quot;Presence&quot;</span><span class="p">)</span> <span class="o">+</span> 
+            <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">18</span><span class="p">))</span> <span class="o">+</span>
+            <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 22. Actual presence value&quot;</span><span class="p">)</span>
+
+<span class="n">age_oldpeak_preds</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">hd_test_predictions</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">age</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">oldpeak</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">.pred_class</span><span class="p">))</span> <span class="o">+</span>
+            <span class="nf">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">)</span> <span class="o">+</span>
+            <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Age (years)&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;ST depression induced by exercise relative to rest (mm)&quot;</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="s">&quot;Predicted presence&quot;</span><span class="p">)</span> <span class="o">+</span> 
+            <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">18</span><span class="p">))</span> <span class="o">+</span>
+            <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Figure 23. Predicted presence value&quot;</span><span class="p">)</span>
+
+<span class="nf">plot_grid</span><span class="p">(</span><span class="n">age_oldpeak_plot</span><span class="p">,</span> <span class="n">age_oldpeak_preds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/group_project_report_33_0.png" src="_images/group_project_report_33_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="discussion">
+<h2>4. Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="findings">
+<h3>4.1 Findings<a class="headerlink" href="#findings" title="Permalink to this headline">¶</a></h3>
+<p>Our pre-analysis of variables showed the most accurate predictors were age, maximum heart rate achieved during exercise, and ST depression induced by exercise. This is corroborated by studies in the European Heart Journal, which concluded that ST segment depression is associated not only with a 100% increase in the occurrence of three-vessel/left main disease but also with an increased risk of subsequent cardiac events, and an analysis published in the Circulation Research journal which analyzed various studies linking the molecular biology of aging and cardiovascular health.</p>
+<p>Using this information, we built a classification model with three predictors (age, thalach, oldpeak) and determined on testing data that it can predict with about 78.9% accuracy whether heart disease will be present or absent in a new, unseen patient.</p>
+<p>As seen in our side-by-side plots comparing presence and predicted presence (Figures 18-23), we can see that our classifier model groups each patient into two noticeable clusters on each predicted presence graph. However, our model wrongly classifies points that appear to be outliers, as the clusters in the actual presence value graphs are not highly separated and distinct. If we were to visualize the points on a 3D plane rather than only plot two variables at a time, then we may be able to collect more information on which points are outliers and if there are any additional trends among those groups. In addition, this model only looks for presence of having heart disease, while the dataset also includes the type of the heart disease of the patient. These differences in the classification of the heart disease itself may help explain the outliers, and point to clusters not detected in this model (which can affect the accuracy for each disease).</p>
+<p>Aside from the comparisons between our predicted presence values and actual presence values, we noticed a weak negative relationship between age and maximum heart rate achieved during exercise. No other notable relationships were observed between the other variables we used in our model. We are unable to draw significant conclusions without more information on how the study was conducted and how data was collected.</p>
+</div>
+<div class="section" id="expectations">
+<h3>4.2 Expectations<a class="headerlink" href="#expectations" title="Permalink to this headline">¶</a></h3>
+<p>Originally, we expected other numeric variables such as chol and trestbps to be relevant in building our classification model due to prior associations between these variables and heart disease. Our pre-analysis and graphs evidently suggested otherwise. Upon further investigation, we realized the variables may not reflect what we assumed they did. For instance, while there are studies linking cholesterol to heart disease, cholesterol increases risk by building up deposits in blood vessels. This buildup takes time, so one measurement may not be indicative of a patient’s health. Similarly, due to the variation in blood pressure throughout the day (data was collected on admission to the hospital which differs between patients), <code class="docutils literal notranslate"><span class="pre">trestbps</span></code> is not as meaningful of a measurement here despite high blood pressure being linked with heart disease. <code class="docutils literal notranslate"><span class="pre">thalach</span></code> and <code class="docutils literal notranslate"><span class="pre">oldpeak</span></code>, by comparison, were collected when patients were under the conditions of an exercise test.</p>
+<p>We also had expected to be able to develop a higher accuracy model overall for our intended purposes. Our model was built to classify the presence or absence of heart disease in a patient. For such a domain, we would like to have very high accuracy to avoid false negatives where someone is classified as being absent of heart disease but may actually be at risk and require treatment. In order to achieve higher accuracy, we may need to investigate other numeric variables included in other datasets, or use other classification methods not covered in DSCI 100. Despite previous scientific knowledge of the relationships between the variables included in the data set, the relatively low accuracy for our model tells us about the highly variable nature of biology and cardiovascular health between people.</p>
+</div>
+<div class="section" id="possible-impacts">
+<h3>4.3 Possible Impacts<a class="headerlink" href="#possible-impacts" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Using our model, patients can be classified as high or low risk for heart disease using their age (<code class="docutils literal notranslate"><span class="pre">age</span></code>), maximum heart rate achieved (<code class="docutils literal notranslate"><span class="pre">thalach</span></code>), and ST depression induced by exercise wrt rest (<code class="docutils literal notranslate"><span class="pre">oldpeak</span></code>). However, the model is not accurate to the standards of a professional medical diagnosis tool. Patients who are classified as “yes” for presence of heart disease are recommended to look into the possibility with a licensed doctor, but those who are classified as “no” should not rule out the possibility and should seek professional advice if symptoms are observed.</p></li>
+<li><p>The model can serve as a framework for a more accurate model using other methods or variables that can reduce our rate of false negatives.</p></li>
+<li><p>More investigation into the results of our data and preexisting scientific knowledge can tell us more about how data collection impacts the results of subsequent analysis. For instance, the previously studied links between blood cholesterol/blood pressure and heart disease were not reflected in our analysis, possibly due to differences in data collection (blood pressure) or the nature of how the variable is known to impact heart disease (cholesterol).</p></li>
+<li><p>Early investigation into and diagnosis of heart disease based on this classification can help save more lives by allowing patients to make lifestyle adjustments or seek medical assistance sooner.</p></li>
+</ul>
+</div>
+<div class="section" id="future-questions">
+<h3>4.4 Future Questions<a class="headerlink" href="#future-questions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Are there other factors not included in this dataset which could be important in predicting presence of heart disease?</p></li>
+<li><p>Are there relationships between predictor variables in the dataset that would tell us more about the biology or nature of heart disease?</p></li>
+<li><p>If more factors are considered (outside of what this dataset contains), would it improve accuracy of the model?</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="references">
+<h2>5. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="study-investigating-the-link-between-st-depression-in-ecg-and-heart-disease">
+<h3>Study investigating the link between ST depression in ECG and heart disease<a class="headerlink" href="#study-investigating-the-link-between-st-depression-in-ecg-and-heart-disease" title="Permalink to this headline">¶</a></h3>
+<p>Diderholm, E., Andrén, B., Frostfeldt, G., Genberg, M., Jernberg, T., Lagerqvist, B., Lindahl, B., &amp; Wallentin, L., 2nd (2002). ST depression in ECG at entry indicates severe coronary lesions and large benefits of an early invasive treatment strategy in unstable coronary artery disease; the FRISC II ECG substudy. The Fast Revascularisation during InStability in Coronary artery disease. European heart journal, 23(1), 41–49. <a class="reference external" href="https://doi.org/10.1053/euhj.2001.2694">https://doi.org/10.1053/euhj.2001.2694</a></p>
+</div>
+<div class="section" id="study-investigating-the-link-between-aging-and-heart-disease">
+<h3>Study investigating the link between aging and heart disease<a class="headerlink" href="#study-investigating-the-link-between-aging-and-heart-disease" title="Permalink to this headline">¶</a></h3>
+<p>North, B. J., &amp; Sinclair, D. A. (2012). The intersection between aging and cardiovascular disease. Circulation research, 110(8), 1097–1108. <a class="reference external" href="https://doi.org/10.1161/CIRCRESAHA.111.246876">https://doi.org/10.1161/CIRCRESAHA.111.246876</a></p>
+</div>
+<div class="section" id="data-repository">
+<h3>Data repository<a class="headerlink" href="#data-repository" title="Permalink to this headline">¶</a></h3>
+<p>Dua, D. and Graff, C. (2019). UCI Machine Learning Repository [<a class="reference external" href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine, CA: University of California, School of Information and Computer Science.</p>
+</div>
+<div class="section" id="id1">
+<h3>Data set<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Janosi, Andras, M.D., Steinbrunn, William, M.D., Pfisterer, Matthias, M.D., Detrano, Robert, M.D., Ph.D., Heart Disease Data Set. Hungarian Institute of Cardiology, Budapest. University Hospital, Zurich, Switzerland. University Hospital, Basel, Switzerland. V.A. Medical Center, Long Beach and Cleveland Clinic Foundation. UCI Machine Learning Repository. <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/heart+disease">https://archive.ics.uci.edu/ml/datasets/heart+disease</a></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="group_project_proposal.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Heart Disease Classification</p>
+        </div>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

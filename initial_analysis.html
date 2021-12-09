@@ -1,0 +1,765 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heart Disease Classification &#8212; My Jupyter Book</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">My Jupyter Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   DSCI100GroupProject
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="group_project_proposal.html">
+   Heart Disease Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="group_project_report.html">
+   Heart Disease Classification
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/initial_analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/initial_analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#background">
+     Background
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-set">
+     Data set
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preliminary-exploratory-data-analysis">
+   Preliminary exploratory data analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loading-libraries">
+     Loading Libraries
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reading-data-and-preprocessing">
+     Reading data and Preprocessing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods">
+   3. Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expected-outcomes-significance">
+   Expected outcomes &amp; significance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-do-you-expect-to-find">
+     What do you expect to find?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-impact-could-such-findings-have">
+     What impact could such findings have?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-future-questions-could-this-lead-to">
+     What future questions could this lead to?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="heart-disease-classification">
+<h1>Heart Disease Classification<a class="headerlink" href="#heart-disease-classification" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="background">
+<h3>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h3>
+<p>Cardiovascular diseases (CVDs), especially heart disorders, are a primary cause of death worldwide, according to the World Health Organization. CVDs kill 17.9 million individuals worldwide, accounting for 32% of all fatalities. Many other physiological attributes have been shown through studies and reports by the CDC and WHO to have strong links to heart disease. Particularly, cholesterol, age, resting blood pressure, smoking, and alcohol consumption appear to be most strongly linked. Detecting the existence of heart disease early on based on numerous parameters such as cholesterol, blood pressure, and age can help save more lives by allowing patients to make lifestyle adjustments or seek medical assistance sooner.</p>
+<p>The aim of this project is to build a classifier using KNN classification to answer the following question: <strong>Is heart disease present (values = 1, 2, 3, 4) or absent (value = 0) in a new patient?</strong></p>
+</div>
+<div class="section" id="data-set">
+<h3>Data set<a class="headerlink" href="#data-set" title="Permalink to this headline">¶</a></h3>
+<p>To answer this question we will analyze data downloaded from the <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Heart+Disease">UCI Machine Learning Repository</a>. There are 4 databases: Cleveland, Hungary, Switzerland, and the VA Long Beach in the downloaded data. Below, we compile these databases into one dataset <code class="docutils literal notranslate"><span class="pre">heart_disease_dataset</span></code>. Each row in the data set contains data about one patient. We will add a column <code class="docutils literal notranslate"><span class="pre">presence</span></code> (the predicted attribute) to indicate the presence or absense of heart disease. In our project we will use 3 of these attributes as predictor variables namely trestbps (resting blood pressure), chol (serum cholestoral in mg/dl), and age (age in years) to predict the presence or absence of heart disease on a new patient.</p>
+<p>Relevant columns in the dataset:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">age</span></code> - age in years</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sex</span></code> - sex (1 = male; 0 = female)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cp</span></code> - chest pain type</p>
+<ul>
+<li><p>Value 1: typical angina</p></li>
+<li><p>Value 2: atypical angina</p></li>
+<li><p>Value 3: non-anginal pain</p></li>
+<li><p>Value 4: asymptomatic</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trestbps</span></code> - resting blood pressure (in mm Hg on admission to the hospital)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chol</span></code> - serum cholestoral in mg/dl</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fbs</span></code> - (fasting blood sugar &gt; 120 mg/dl) (1 = true; 0 = false)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">restecg</span></code> - resting electrocardiographic results</p>
+<ul>
+<li><p>Value 0: normal</p></li>
+<li><p>Value 1: having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of &gt; 0.05 mV)</p></li>
+<li><p>Value 2: showing probable or definite left ventricular hypertrophy by Estes’ criteria</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thalach</span></code> - maximum heart rate achieved</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exang</span></code> - exercise induced angina (1 = yes; 0 = no)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oldpeak</span></code> - ST depression induced by exercise relative to rest</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slope</span></code> - the slope of the peak exercise ST segment</p>
+<ul>
+<li><p>Value 1: upsloping</p></li>
+<li><p>Value 2: flat</p></li>
+<li><p>Value 3: downsloping</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ca</span></code> - number of major vessels (0-3) colored by flourosopy</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thal</span></code> - 3 = normal; 6 = fixed defect; 7 = reversable defect</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">presence</span></code> - predicted attribute</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="preliminary-exploratory-data-analysis">
+<h2>Preliminary exploratory data analysis<a class="headerlink" href="#preliminary-exploratory-data-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="loading-libraries">
+<h3>Loading Libraries<a class="headerlink" href="#loading-libraries" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Attaching packages</span> ------------------------------------------------------------------------ tidyverse 1.3.1 --
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">ggplot2</span> 3.3.5     <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">purrr  </span> 0.3.4
+<span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">tibble </span> 3.1.6     <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">dplyr  </span> 1.0.7
+<span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">tidyr  </span> 1.1.4     <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">stringr</span> 1.4.0
+<span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">readr  </span> 2.1.1     <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">forcats</span> 0.5.1
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Conflicts</span> --------------------------------------------------------------------------- tidyverse_conflicts() --
+<span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">filter()</span> masks <span class=" -Color -Color-Blue">stats</span>::filter()
+<span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">lag()</span>    masks <span class=" -Color -Color-Blue">stats</span>::lag()
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reading-data-and-preprocessing">
+<h3>Reading data and Preprocessing<a class="headerlink" href="#reading-data-and-preprocessing" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">path_names</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="s">&quot;data/processed.cleveland.data&quot;</span><span class="p">,</span> <span class="s">&quot;data/processed.switzerland.data&quot;</span><span class="p">,</span> <span class="s">&quot;data/processed.va.data&quot;</span><span class="p">)</span>
+<span class="n">factors</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="s">&quot;cleveland&quot;</span><span class="p">,</span> <span class="s">&quot;switzerland&quot;</span><span class="p">,</span> <span class="s">&quot;va&quot;</span><span class="p">)</span>
+<span class="n">colnames</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">,</span> <span class="s">&quot;sex&quot;</span><span class="p">,</span> <span class="s">&quot;cp&quot;</span><span class="p">,</span> <span class="s">&quot;trestbps&quot;</span><span class="p">,</span> <span class="s">&quot;chol&quot;</span><span class="p">,</span> <span class="s">&quot;fbs&quot;</span><span class="p">,</span> <span class="s">&quot;restecg&quot;</span><span class="p">,</span> <span class="s">&quot;thalach&quot;</span><span class="p">,</span> <span class="s">&quot;exang&quot;</span><span class="p">,</span> <span class="s">&quot;oldpeak&quot;</span><span class="p">,</span> <span class="s">&quot;slope&quot;</span><span class="p">,</span> <span class="s">&quot;ca&quot;</span><span class="p">,</span> <span class="s">&quot;thal&quot;</span><span class="p">,</span> <span class="s">&quot;presence&quot;</span><span class="p">)</span>
+
+<span class="n">heart_disease_data</span> <span class="o">&lt;-</span> <span class="nf">read_delim</span><span class="p">(</span><span class="s">&quot;data/reprocessed.hungarian.data&quot;</span><span class="p">,</span> <span class="n">delim</span> <span class="o">=</span> <span class="s">&quot; &quot;</span><span class="p">,</span> <span class="n">col_names</span> <span class="o">=</span> <span class="n">colnames</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">mutate</span><span class="p">(</span><span class="n">region</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="s">&quot;hungary&quot;</span><span class="p">))</span>
+
+<span class="n">i</span> <span class="o">&lt;-</span> <span class="m">1</span> <span class="c1"># for every iteration in the loop, increment by 1</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">p</span> <span class="n">in</span> <span class="n">path_names</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1"># for every file processed, add a col that has the region name</span>
+    <span class="n">data_from_file</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">col_names</span> <span class="o">=</span> <span class="n">colnames</span><span class="p">,</span> <span class="n">na</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;?&quot;</span><span class="p">))</span> <span class="o">%&gt;%</span>
+      <span class="nf">mutate</span><span class="p">(</span><span class="n">region</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">factors</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+    <span class="c1"># add the freshly read data to the master data frame</span>
+    <span class="n">heart_disease_data</span> <span class="o">&lt;-</span> <span class="nf">rbind</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">,</span> <span class="n">data_from_file</span><span class="p">)</span>
+
+    <span class="c1"># increment to keep track of the position in the list of files</span>
+    <span class="n">i</span> <span class="o">&lt;-</span> <span class="n">i</span> <span class="o">+</span> <span class="m">1</span>
+<span class="p">}</span>
+
+<span class="n">heart_disease_data</span> <span class="o">&lt;-</span> <span class="nf">mutate_at</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">,</span> <span class="nf">vars</span><span class="p">(</span><span class="n">presence</span><span class="p">),</span> <span class="n">factor</span><span class="p">)</span> <span class="c1"># create a new col presence to df</span>
+<span class="n">heart_disease_data</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">trestbps</span><span class="p">,</span> <span class="n">chol</span><span class="p">,</span> <span class="n">thalach</span><span class="p">,</span> <span class="n">oldpeak</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">presence</span><span class="p">)</span>
+
+<span class="n">heart_disease_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">294</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">14</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">-----------------------------------------------------------------------------------------</span>
+<span class=" -Color -Color-Bold">Delimiter:</span> &quot; &quot;
+<span class=" -Color -Color-Green">dbl</span> (14): age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpea...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">i</span> Use <span class=" -Color -Color-Black -Color-Black-BGWhite">`spec()`</span> to retrieve the full column specification for this data.
+<span class=" -Color -Color-Cyan">i</span> Specify the column types or set <span class=" -Color -Color-Black -Color-Black-BGWhite">`show_col_types = FALSE`</span> to quiet this message.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">303</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">14</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">-----------------------------------------------------------------------------------------</span>
+<span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
+<span class=" -Color -Color-Green">dbl</span> (14): age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpea...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">i</span> Use <span class=" -Color -Color-Black -Color-Black-BGWhite">`spec()`</span> to retrieve the full column specification for this data.
+<span class=" -Color -Color-Cyan">i</span> Specify the column types or set <span class=" -Color -Color-Black -Color-Black-BGWhite">`show_col_types = FALSE`</span> to quiet this message.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">123</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">14</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">-----------------------------------------------------------------------------------------</span>
+<span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
+<span class=" -Color -Color-Green">dbl</span> (14): age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpea...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">i</span> Use <span class=" -Color -Color-Black -Color-Black-BGWhite">`spec()`</span> to retrieve the full column specification for this data.
+<span class=" -Color -Color-Cyan">i</span> Specify the column types or set <span class=" -Color -Color-Black -Color-Black-BGWhite">`show_col_types = FALSE`</span> to quiet this message.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">200</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">14</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">-----------------------------------------------------------------------------------------</span>
+<span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
+<span class=" -Color -Color-Green">dbl</span> (14): age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpea...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">i</span> Use <span class=" -Color -Color-Black -Color-Black-BGWhite">`spec()`</span> to retrieve the full column specification for this data.
+<span class=" -Color -Color-Cyan">i</span> Specify the column types or set <span class=" -Color -Color-Black -Color-Black-BGWhite">`show_col_types = FALSE`</span> to quiet this message.
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A tibble: 920 × 7</caption>
+<thead>
+	<tr><th scope=col>age</th><th scope=col>trestbps</th><th scope=col>chol</th><th scope=col>thalach</th><th scope=col>oldpeak</th><th scope=col>region</th><th scope=col>presence</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>40</td><td>140</td><td>289</td><td>172</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>49</td><td>160</td><td>180</td><td>156</td><td>1.0</td><td>hungary</td><td>1</td></tr>
+	<tr><td>37</td><td>130</td><td>283</td><td> 98</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>48</td><td>138</td><td>214</td><td>108</td><td>1.5</td><td>hungary</td><td>3</td></tr>
+	<tr><td>54</td><td>150</td><td> -9</td><td>122</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>39</td><td>120</td><td>339</td><td>170</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>45</td><td>130</td><td>237</td><td>170</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>54</td><td>110</td><td>208</td><td>142</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>37</td><td>140</td><td>207</td><td>130</td><td>1.5</td><td>hungary</td><td>1</td></tr>
+	<tr><td>48</td><td>120</td><td>284</td><td>120</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>37</td><td>130</td><td>211</td><td>142</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>58</td><td>136</td><td>164</td><td> 99</td><td>2.0</td><td>hungary</td><td>3</td></tr>
+	<tr><td>39</td><td>120</td><td>204</td><td>145</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>49</td><td>140</td><td>234</td><td>140</td><td>1.0</td><td>hungary</td><td>3</td></tr>
+	<tr><td>42</td><td>115</td><td>211</td><td>137</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>54</td><td>120</td><td>273</td><td>150</td><td>1.5</td><td>hungary</td><td>0</td></tr>
+	<tr><td>38</td><td>110</td><td>196</td><td>166</td><td>0.0</td><td>hungary</td><td>1</td></tr>
+	<tr><td>43</td><td>120</td><td>201</td><td>165</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>60</td><td>100</td><td>248</td><td>125</td><td>1.0</td><td>hungary</td><td>1</td></tr>
+	<tr><td>36</td><td>120</td><td>267</td><td>160</td><td>3.0</td><td>hungary</td><td>1</td></tr>
+	<tr><td>43</td><td>100</td><td>223</td><td>142</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>44</td><td>120</td><td>184</td><td>142</td><td>1.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>49</td><td>124</td><td>201</td><td>164</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>44</td><td>150</td><td>288</td><td>150</td><td>3.0</td><td>hungary</td><td>3</td></tr>
+	<tr><td>40</td><td>130</td><td>215</td><td>138</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>36</td><td>130</td><td>209</td><td>178</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>53</td><td>124</td><td>260</td><td>112</td><td>3.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>52</td><td>120</td><td>284</td><td>118</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>53</td><td>113</td><td>468</td><td>127</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>51</td><td>125</td><td>188</td><td>145</td><td>0.0</td><td>hungary</td><td>0</td></tr>
+	<tr><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
+	<tr><td>53</td><td>124</td><td>243</td><td>122</td><td>2.0</td><td>va</td><td>1</td></tr>
+	<tr><td>37</td><td>118</td><td>240</td><td>165</td><td>1.0</td><td>va</td><td>0</td></tr>
+	<tr><td>67</td><td>140</td><td>219</td><td>122</td><td>2.0</td><td>va</td><td>3</td></tr>
+	<tr><td>74</td><td>140</td><td>237</td><td> 94</td><td>0.0</td><td>va</td><td>1</td></tr>
+	<tr><td>63</td><td> NA</td><td>165</td><td> NA</td><td> NA</td><td>va</td><td>0</td></tr>
+	<tr><td>58</td><td>100</td><td>213</td><td>110</td><td>0.0</td><td>va</td><td>0</td></tr>
+	<tr><td>61</td><td>190</td><td>287</td><td>150</td><td>2.0</td><td>va</td><td>4</td></tr>
+	<tr><td>64</td><td>130</td><td>258</td><td>130</td><td>0.0</td><td>va</td><td>2</td></tr>
+	<tr><td>58</td><td>160</td><td>256</td><td>113</td><td>1.0</td><td>va</td><td>3</td></tr>
+	<tr><td>60</td><td>130</td><td>186</td><td>140</td><td>0.5</td><td>va</td><td>1</td></tr>
+	<tr><td>57</td><td>122</td><td>264</td><td>100</td><td>0.0</td><td>va</td><td>1</td></tr>
+	<tr><td>55</td><td> NA</td><td> NA</td><td> NA</td><td> NA</td><td>va</td><td>0</td></tr>
+	<tr><td>55</td><td>120</td><td>226</td><td>127</td><td>1.7</td><td>va</td><td>1</td></tr>
+	<tr><td>56</td><td>130</td><td>203</td><td> 98</td><td>1.5</td><td>va</td><td>1</td></tr>
+	<tr><td>57</td><td>130</td><td>207</td><td> 96</td><td>1.0</td><td>va</td><td>0</td></tr>
+	<tr><td>61</td><td> NA</td><td>284</td><td> NA</td><td> NA</td><td>va</td><td>1</td></tr>
+	<tr><td>61</td><td>120</td><td>337</td><td> 98</td><td>0.0</td><td>va</td><td>3</td></tr>
+	<tr><td>58</td><td>150</td><td>219</td><td>118</td><td>0.0</td><td>va</td><td>2</td></tr>
+	<tr><td>74</td><td>155</td><td>310</td><td>112</td><td>1.5</td><td>va</td><td>2</td></tr>
+	<tr><td>68</td><td>134</td><td>254</td><td>151</td><td>0.0</td><td>va</td><td>0</td></tr>
+	<tr><td>51</td><td>114</td><td>258</td><td> 96</td><td>1.0</td><td>va</td><td>0</td></tr>
+	<tr><td>62</td><td>160</td><td>254</td><td>108</td><td>3.0</td><td>va</td><td>4</td></tr>
+	<tr><td>53</td><td>144</td><td>300</td><td>128</td><td>1.5</td><td>va</td><td>3</td></tr>
+	<tr><td>62</td><td>158</td><td>170</td><td>138</td><td>0.0</td><td>va</td><td>1</td></tr>
+	<tr><td>46</td><td>134</td><td>310</td><td>126</td><td>0.0</td><td>va</td><td>2</td></tr>
+	<tr><td>54</td><td>127</td><td>333</td><td>154</td><td>0.0</td><td>va</td><td>1</td></tr>
+	<tr><td>62</td><td> NA</td><td>139</td><td> NA</td><td> NA</td><td>va</td><td>0</td></tr>
+	<tr><td>55</td><td>122</td><td>223</td><td>100</td><td>0.0</td><td>va</td><td>2</td></tr>
+	<tr><td>58</td><td> NA</td><td>385</td><td> NA</td><td> NA</td><td>va</td><td>0</td></tr>
+	<tr><td>62</td><td>120</td><td>254</td><td> 93</td><td>0.0</td><td>va</td><td>1</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="methods">
+<h2>3. Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Summary of all attributes (columns)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      age           trestbps        chol          thalach     
+ Min.   :28.00   Min.   : -9   Min.   : -9.0   Min.   : -9.0  
+ 1st Qu.:47.00   1st Qu.:120   1st Qu.:167.0   1st Qu.:120.0  
+ Median :54.00   Median :130   Median :222.0   Median :140.0  
+ Mean   :53.51   Mean   :132   Mean   :193.9   Mean   :137.4  
+ 3rd Qu.:60.00   3rd Qu.:140   3rd Qu.:267.0   3rd Qu.:157.0  
+ Max.   :77.00   Max.   :200   Max.   :603.0   Max.   :202.0  
+                 NA&#39;s   :58    NA&#39;s   :7       NA&#39;s   :54     
+    oldpeak                region    presence
+ Min.   :-2.6000   hungary    :294   0:411   
+ 1st Qu.: 0.0000   cleveland  :303   1:196   
+ Median : 0.5000   switzerland:123   2:135   
+ Mean   : 0.8788   va         :200   3:135   
+ 3rd Qu.: 1.5000                     4: 43   
+ Max.   : 6.2000                             
+ NA&#39;s   :62                                  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cholestrol Analysis - original histogram of chol distribution</span>
+<span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span> <span class="o">=</span> <span class="m">11</span><span class="p">,</span> <span class="n">repr.plot.height</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span>
+
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">chol</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">binwidth</span> <span class="o">=</span> <span class="m">30</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">facet_grid</span><span class="p">(</span><span class="n">rows</span> <span class="o">=</span> <span class="nf">vars</span><span class="p">(</span><span class="n">region</span><span class="p">),</span> <span class="n">cols</span> <span class="o">=</span> <span class="nf">vars</span><span class="p">(</span><span class="n">presence</span><span class="p">))</span> <span class="o">+</span>
+<span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Serum cholestoral in mg/dl&quot;</span><span class="p">)</span> <span class="o">+</span>
+<span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">20</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/initial_analysis_8_0.png" src="_images/initial_analysis_8_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Manual split of ranges of cholesterol</span>
+<span class="n">heart_disease_data</span> <span class="o">%&gt;%</span>
+  <span class="nf">filter</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">chol</span><span class="p">))</span> <span class="o">%&gt;%</span>
+  <span class="nf">group_by</span><span class="p">(</span><span class="n">presence</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">chol_bin</span> <span class="o">=</span> <span class="nf">cut</span><span class="p">(</span><span class="n">chol</span><span class="p">,</span>
+                        <span class="n">breaks</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">-10</span><span class="p">,</span> <span class="m">90</span><span class="p">,</span> <span class="m">190</span><span class="p">,</span> <span class="m">290</span><span class="p">,</span> <span class="m">390</span><span class="p">,</span> <span class="m">490</span><span class="p">,</span> <span class="m">610</span><span class="p">),</span>
+                        <span class="n">right</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">))</span> <span class="o">%&gt;%</span>
+  <span class="nf">group_by</span><span class="p">(</span><span class="n">presence</span><span class="p">,</span> <span class="n">chol_bin</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">summarize</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nf">n</span><span class="p">())</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">percent</span> <span class="o">=</span> <span class="m">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">/</span> <span class="nf">sum</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">percent</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">presence</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">chol_bin</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">&quot;identity&quot;</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="s">&quot;stack&quot;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="c1">#facet_grid(rows = vars(presence)) +</span>
+  <span class="nf">labs</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="s">&quot;percentage (%) in cholesterol range&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Heart Disease Presence(1-4) &amp; Absence(0)&quot;</span><span class="p">,</span>
+       <span class="n">fill</span> <span class="o">=</span> <span class="s">&quot;Cholesterol Ranges&quot;</span><span class="p">)</span> <span class="o">+</span>
+<span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">20</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`summarise()` has grouped output by &#39;presence&#39;. You can override using the `.groups` argument.
+</pre></div>
+</div>
+<img alt="_images/initial_analysis_9_1.png" src="_images/initial_analysis_9_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Density plot</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">heart_disease_data</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="s">&quot;chol&quot;</span><span class="p">),</span> 
+                               <span class="nf">after_stat</span><span class="p">(</span><span class="n">density</span><span class="p">),</span>
+                               <span class="n">fill</span> <span class="o">=</span> <span class="n">presence</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="m">20</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="nf">labs</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="s">&quot;Density of Heart Disease Categories&quot;</span><span class="p">,</span>
+       <span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Serum Cholesterol Levels (mg/dl)&quot;</span><span class="p">,</span>
+       <span class="n">fill</span> <span class="o">=</span> <span class="s">&quot;Heart Disease&quot;</span><span class="p">)</span>
+
+
+<span class="n">chol_range_table</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data</span> <span class="o">%&gt;%</span>
+  <span class="nf">filter</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">chol</span><span class="p">))</span> <span class="o">%&gt;%</span>
+  <span class="nf">group_by</span><span class="p">(</span><span class="n">presence</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">chol_bin</span> <span class="o">=</span> <span class="nf">cut_width</span><span class="p">(</span><span class="n">chol</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="m">100</span><span class="p">))</span> <span class="o">%&gt;%</span>
+  <span class="nf">group_by</span><span class="p">(</span><span class="n">presence</span><span class="p">,</span> <span class="n">chol_bin</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">summarize</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nf">n</span><span class="p">())</span> <span class="o">%&gt;%</span>
+  <span class="nf">pivot_wider</span><span class="p">(</span><span class="n">names_from</span> <span class="o">=</span> <span class="n">chol_bin</span><span class="p">,</span> <span class="n">values_from</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR while rich displaying an object: Error: stat_bin() requires an x or y aesthetic.
+
+Traceback:
+1. FUN(X[[i]], ...)
+2. tryCatch(withCallingHandlers({
+ .     if (!mime %in% names(repr::mime2repr)) 
+ .         stop(&quot;No repr_* for mimetype &quot;, mime, &quot; in repr::mime2repr&quot;)
+ .     rpr &lt;- repr::mime2repr[[mime]](obj)
+ .     if (is.null(rpr)) 
+ .         return(NULL)
+ .     prepare_content(is.raw(rpr), rpr)
+ . }, error = error_handler), error = outer_handler)
+3. tryCatchList(expr, classes, parentenv, handlers)
+4. tryCatchOne(expr, names, parentenv, handlers[[1L]])
+5. doTryCatch(return(expr), name, parentenv, handler)
+6. withCallingHandlers({
+ .     if (!mime %in% names(repr::mime2repr)) 
+ .         stop(&quot;No repr_* for mimetype &quot;, mime, &quot; in repr::mime2repr&quot;)
+ .     rpr &lt;- repr::mime2repr[[mime]](obj)
+ .     if (is.null(rpr)) 
+ .         return(NULL)
+ .     prepare_content(is.raw(rpr), rpr)
+ . }, error = error_handler)
+7. repr::mime2repr[[mime]](obj)
+8. repr_text.default(obj)
+9. paste(capture.output(print(obj)), collapse = &quot;\n&quot;)
+10. capture.output(print(obj))
+11. evalVis(expr)
+12. withVisible(eval(expr, pf))
+13. eval(expr, pf)
+14. eval(expr, pf)
+15. print(obj)
+16. print.ggplot(obj)
+17. ggplot_build(x)
+18. ggplot_build.ggplot(x)
+19. by_layer(function(l, d) l$compute_statistic(d, layout))
+20. f(l = layers[[i]], d = data[[i]])
+21. l$compute_statistic(d, layout)
+22. f(..., self = self)
+23. self$stat$setup_params(data, self$stat_params)
+24. f(...)
+25. abort(&quot;stat_bin() requires an x or y aesthetic.&quot;)
+26. signal_abort(cnd)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`summarise()` has grouped output by &#39;presence&#39;. You can override using the `.groups` argument.
+</pre></div>
+</div>
+<img alt="_images/initial_analysis_10_2.png" src="_images/initial_analysis_10_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Density Plot of All 5 Variables # ----</span>
+<span class="n">heart_disease_data</span> <span class="o">%&gt;%</span>
+  <span class="nf">pivot_longer</span><span class="p">(</span><span class="n">cols</span> <span class="o">=</span> <span class="n">age</span><span class="o">:</span><span class="n">oldpeak</span><span class="p">,</span> <span class="n">names_to</span><span class="o">=</span> <span class="s">&quot;type&quot;</span><span class="p">,</span> <span class="n">values_to</span> <span class="o">=</span> <span class="s">&quot;value&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="nf">after_stat</span><span class="p">(</span><span class="n">density</span><span class="p">),</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">presence</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">bins</span> <span class="o">=</span> <span class="m">10</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="nf">facet_wrap</span><span class="p">(</span><span class="n">.</span><span class="o">~</span> <span class="n">type</span><span class="p">,</span> <span class="n">scales</span> <span class="o">=</span> <span class="s">&quot;free&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+&quot;Removed 181 rows containing non-finite values (stat_bin).&quot;
+</pre></div>
+</div>
+<img alt="_images/initial_analysis_11_1.png" src="_images/initial_analysis_11_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Interval Splitter and Table </span>
+<span class="nf">library</span><span class="p">(</span><span class="n">stringr</span><span class="p">)</span>
+<span class="n">interval_count</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">heart_disease_count</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data</span> <span class="o">%&gt;%</span>
+    <span class="nf">filter</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="n">age</span><span class="p">))</span> <span class="o">%&gt;%</span>
+    <span class="nf">group_by</span><span class="p">(</span><span class="n">presence</span><span class="p">)</span> <span class="o">%&gt;%</span>
+    <span class="nf">mutate</span><span class="p">(</span><span class="n">age</span> <span class="o">=</span> <span class="nf">cut_interval</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="m">5</span><span class="p">))</span> <span class="o">%&gt;%</span>
+    <span class="nf">count</span><span class="p">(</span><span class="n">presence</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="o">%&gt;%</span>
+    <span class="nf">mutate</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">))</span> <span class="o">%&gt;%</span>
+    <span class="nf">setNames</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;presence&quot;</span><span class="p">,</span> <span class="s">&quot;range&quot;</span><span class="p">,</span> <span class="s">&quot;n&quot;</span><span class="p">,</span> <span class="s">&quot;type&quot;</span><span class="p">))</span>
+  <span class="n">heart_disease_count</span>
+  
+  <span class="nf">for </span><span class="p">(</span><span class="n">name</span> <span class="n">in</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;trestbps&quot;</span><span class="p">,</span> <span class="s">&quot;chol&quot;</span><span class="p">,</span> <span class="s">&quot;thalach&quot;</span><span class="p">,</span> <span class="s">&quot;oldpeak&quot;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">heart_disease_range</span> <span class="o">&lt;-</span> <span class="n">heart_disease_data</span> <span class="o">%&gt;%</span>
+      <span class="nf">filter</span><span class="p">(</span><span class="o">!</span><span class="nf">is.na</span><span class="p">(</span><span class="o">!!</span><span class="nf">sym</span><span class="p">(</span><span class="n">name</span><span class="p">)))</span> <span class="o">%&gt;%</span>
+      <span class="nf">group_by</span><span class="p">(</span><span class="n">presence</span><span class="p">)</span> <span class="o">%&gt;%</span>
+      <span class="nf">mutate</span><span class="p">(</span><span class="o">!!</span><span class="nf">sym</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">:=</span> <span class="nf">cut_interval</span><span class="p">(</span><span class="o">!!</span><span class="nf">sym</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">n</span> <span class="o">=</span> <span class="m">5</span><span class="p">))</span> <span class="o">%&gt;%</span>
+      <span class="nf">count</span><span class="p">(</span><span class="n">presence</span><span class="p">,</span> <span class="o">!!</span><span class="nf">sym</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="o">%&gt;%</span>
+      <span class="nf">mutate</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="o">%&gt;%</span>
+      <span class="nf">setNames</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;presence&quot;</span><span class="p">,</span> <span class="s">&quot;range&quot;</span><span class="p">,</span> <span class="s">&quot;n&quot;</span><span class="p">,</span> <span class="s">&quot;type&quot;</span><span class="p">))</span>
+    <span class="n">heart_disease_range</span>
+
+    <span class="n">heart_disease_count</span><span class="o">&lt;-</span> <span class="nf">rbind</span><span class="p">(</span><span class="n">heart_disease_count</span><span class="p">,</span> <span class="n">heart_disease_range</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="nf">return</span><span class="p">(</span><span class="n">heart_disease_count</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">heart_disease_split_data</span> <span class="o">&lt;-</span> <span class="nf">interval_count</span><span class="p">()</span> <span class="o">%&gt;%</span>
+  <span class="nf">group_by</span><span class="p">(</span><span class="n">presence</span><span class="p">,</span> <span class="n">type</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">pert</span> <span class="o">=</span> <span class="n">n</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">*</span> <span class="m">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="expected-outcomes-significance">
+<h2>Expected outcomes &amp; significance<a class="headerlink" href="#expected-outcomes-significance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-do-you-expect-to-find">
+<h3>What do you expect to find?<a class="headerlink" href="#what-do-you-expect-to-find" title="Permalink to this headline">¶</a></h3>
+<p>We should be able to predict the presence or absence of heart disease in new patients based on factors we have considered to train and test our model with good accuracy.</p>
+</div>
+<div class="section" id="what-impact-could-such-findings-have">
+<h3>What impact could such findings have?<a class="headerlink" href="#what-impact-could-such-findings-have" title="Permalink to this headline">¶</a></h3>
+<p>Detecting the existence of heart disease early on based on numerous parameters such as cholesterol, blood pressure, and age can help save more lives by allowing patients to make lifestyle adjustments or seek medical assistance sooner. It could lead to fewer deaths due to heart disease, extend an individual’s lifetime, or just make their quality of life better.</p>
+</div>
+<div class="section" id="what-future-questions-could-this-lead-to">
+<h3>What future questions could this lead to?<a class="headerlink" href="#what-future-questions-could-this-lead-to" title="Permalink to this headline">¶</a></h3>
+<p>Are there some factors which are important than others to monitor to detect the rpesence or absence of heart disease? If in the the future, more factors are considered would that lead to better accuracy and a better model? Are there other factors not included in this dataset which could be equally important in predicting presence of heart disease?</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

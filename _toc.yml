@@ -1,0 +1,5 @@
+format: jb-book
+root: README
+chapters:
+- file: group_project_proposal.ipynb
+- file: group_project_report.ipynb

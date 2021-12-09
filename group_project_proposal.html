@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Heart Disease Classification &#8212; My Jupyter Book</title>
+    <title>Heart Disease Classification Proposal &#8212; My Jupyter Book</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,8 +51,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Heart Disease Classification" href="group_project_report.html" />
-    <link rel="prev" title="DSCI100GroupProject" href="README.html" />
+    <link rel="next" title="Heart Disease Classification Report" href="group_project_report.html" />
+    <link rel="prev" title="DSCI-100 Group Project" href="README.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -87,19 +87,19 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="README.html">
-   DSCI100GroupProject
+   DSCI-100 Group Project
   </a>
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Heart Disease Classification
+   Heart Disease Classification Proposal
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="group_project_report.html">
-   Heart Disease Classification
+   Heart Disease Classification Report
   </a>
  </li>
 </ul>
@@ -330,8 +330,8 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="heart-disease-classification">
-<h1>Heart Disease Classification<a class="headerlink" href="#heart-disease-classification" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="heart-disease-classification-proposal">
+<h1>Heart Disease Classification Proposal<a class="headerlink" href="#heart-disease-classification-proposal" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="background">
@@ -394,7 +394,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Attaching packages</span> ------------------------------------------------------------------------ tidyverse 1.3.1 --
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Attaching packages</span> ------------------------------------------------------------------------------- tidyverse 1.3.1 --
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">ggplot2</span> 3.3.5     <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">purrr  </span> 0.3.4
@@ -403,7 +403,7 @@
 <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">readr  </span> 2.1.1     <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">forcats</span> 0.5.1
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Conflicts</span> --------------------------------------------------------------------------- tidyverse_conflicts() --
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Conflicts</span> ---------------------------------------------------------------------------------- tidyverse_conflicts() --
 <span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">filter()</span> masks <span class=" -Color -Color-Blue">stats</span>::filter()
 <span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">lag()</span>    masks <span class=" -Color -Color-Blue">stats</span>::lag()
 </pre></div>
@@ -413,7 +413,7 @@
   required_pkgs.model_spec parsnip
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Attaching packages</span> ----------------------------------------------------------------------- tidymodels 0.1.4 --
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Attaching packages</span> ------------------------------------------------------------------------------ tidymodels 0.1.4 --
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">broom       </span> 0.7.10     <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">rsample     </span> 0.1.1 
@@ -424,14 +424,14 @@
 <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">recipes     </span> 0.1.17     
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Conflicts</span> -------------------------------------------------------------------------- tidymodels_conflicts() --
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Conflicts</span> --------------------------------------------------------------------------------- tidymodels_conflicts() --
 <span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">scales</span>::<span class=" -Color -Color-Green">discard()</span> masks <span class=" -Color -Color-Blue">purrr</span>::discard()
 <span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">filter()</span>   masks <span class=" -Color -Color-Blue">stats</span>::filter()
 <span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">recipes</span>::<span class=" -Color -Color-Green">fixed()</span>  masks <span class=" -Color -Color-Blue">stringr</span>::fixed()
 <span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">lag()</span>      masks <span class=" -Color -Color-Blue">stats</span>::lag()
 <span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">yardstick</span>::<span class=" -Color -Color-Green">spec()</span> masks <span class=" -Color -Color-Blue">readr</span>::spec()
 <span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">recipes</span>::<span class=" -Color -Color-Green">step()</span>   masks <span class=" -Color -Color-Blue">stats</span>::step()
-<span class=" -Color -Color-Blue">*</span> Dig deeper into tidy modeling with R at <span class=" -Color -Color-Green">https://www.tmwr.org</span>
+<span class=" -Color -Color-Blue">*</span> Learn how to get started at <span class=" -Color -Color-Green">https://www.tidymodels.org/start/</span>
 </pre></div>
 </div>
 </div>
@@ -488,7 +488,7 @@
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">294</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">14</span>
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">-----------------------------------------------------------------------------------------</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">------------------------------------------------------------------------------------------------</span>
 <span class=" -Color -Color-Bold">Delimiter:</span> &quot; &quot;
 <span class=" -Color -Color-Green">dbl</span> (14): age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpea...
 </pre></div>
@@ -500,7 +500,7 @@
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">303</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">14</span>
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">-----------------------------------------------------------------------------------------</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">------------------------------------------------------------------------------------------------</span>
 <span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
 <span class=" -Color -Color-Green">dbl</span> (14): age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpea...
 </pre></div>
@@ -512,7 +512,7 @@
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">123</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">14</span>
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">-----------------------------------------------------------------------------------------</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">------------------------------------------------------------------------------------------------</span>
 <span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
 <span class=" -Color -Color-Green">dbl</span> (14): age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpea...
 </pre></div>
@@ -524,7 +524,7 @@
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">200</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">14</span>
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">-----------------------------------------------------------------------------------------</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">------------------------------------------------------------------------------------------------</span>
 <span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
 <span class=" -Color -Color-Green">dbl</span> (14): age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpea...
 </pre></div>
@@ -1046,17 +1046,17 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>== Workflow [trained] ===========================================================================================
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>== Workflow [trained] ==================================================================================================
 Preprocessor: Recipe
 Model: nearest_neighbor()
 
--- Preprocessor -------------------------------------------------------------------------------------------------
+-- Preprocessor --------------------------------------------------------------------------------------------------------
 2 Recipe Steps
 
 * step_scale()
 * step_center()
 
--- Model --------------------------------------------------------------------------------------------------------
+-- Model ---------------------------------------------------------------------------------------------------------------
 
 Call:
 kknn::train.kknn(formula = ..y ~ ., data = data, ks = min_rows(10,     data, 5), kernel = ~&quot;rectangular&quot;)
@@ -1397,13 +1397,13 @@ Prediction no yes
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">DSCI100GroupProject</p>
+            <p class="prev-next-title">DSCI-100 Group Project</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="group_project_report.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Heart Disease Classification</p>
+        <p class="prev-next-title">Heart Disease Classification Report</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

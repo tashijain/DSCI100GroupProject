@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DSCI100GroupProject &#8212; My Jupyter Book</title>
+    <title>DSCI-100 Group Project &#8212; My Jupyter Book</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,7 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Heart Disease Classification" href="group_project_proposal.html" />
+    <link rel="next" title="Heart Disease Classification Proposal" href="group_project_proposal.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -86,19 +86,19 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1 current">
   <a class="reference internal" href="#">
-   DSCI100GroupProject
+   DSCI-100 Group Project
   </a>
  </li>
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="group_project_proposal.html">
-   Heart Disease Classification
+   Heart Disease Classification Proposal
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="group_project_report.html">
-   Heart Disease Classification
+   Heart Disease Classification Report
   </a>
  </li>
 </ul>
@@ -178,6 +178,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-and-publish">
+   Build and Publish
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-source">
    Data Source
   </a>
@@ -198,8 +203,8 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="dsci100groupproject">
-<h1>DSCI100GroupProject<a class="headerlink" href="#dsci100groupproject" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="dsci-100-group-project">
+<h1>DSCI-100 Group Project<a class="headerlink" href="#dsci-100-group-project" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
@@ -216,8 +221,19 @@
 <span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">r</span><span class="o">-</span><span class="n">ggally</span>
 <span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">r</span><span class="o">-</span><span class="n">cowplot</span>
 <span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">r</span><span class="o">-</span><span class="n">kknn</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">ghp</span><span class="o">-</span><span class="kn">import</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="build-and-publish">
+<h2>Build and Publish<a class="headerlink" href="#build-and-publish" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Open a terminal (powershell or otherwise).</p></li>
+<li><p>Activate conda environment: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">dsci100_project</span></code></p></li>
+<li><p>Move to your project root folder: <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">ABSOLUTE/PATH/TO/PROJECT/FOLDER</span></code></p></li>
+<li><p>Build page: <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">.</span></code></p></li>
+<li><p>Publish html to Github Pages: <code class="docutils literal notranslate"><span class="pre">ghp-import</span> <span class="pre">-n</span> <span class="pre">-p</span> <span class="pre">-f</span> <span class="pre">_build/html</span></code></p></li>
+</ol>
 </div>
 <div class="section" id="data-source">
 <h2>Data Source<a class="headerlink" href="#data-source" title="Permalink to this headline">¶</a></h2>
@@ -280,7 +296,7 @@
     <a class='right-next' id="next-link" href="group_project_proposal.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Heart Disease Classification</p>
+        <p class="prev-next-title">Heart Disease Classification Proposal</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

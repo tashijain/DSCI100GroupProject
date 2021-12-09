@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Heart Disease Classification &#8212; My Jupyter Book</title>
+    <title>Heart Disease Classification Report &#8212; My Jupyter Book</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,7 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Heart Disease Classification" href="group_project_proposal.html" />
+    <link rel="prev" title="Heart Disease Classification Proposal" href="group_project_proposal.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -86,19 +86,19 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="README.html">
-   DSCI100GroupProject
+   DSCI-100 Group Project
   </a>
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="group_project_proposal.html">
-   Heart Disease Classification
+   Heart Disease Classification Proposal
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Heart Disease Classification
+   Heart Disease Classification Report
   </a>
  </li>
 </ul>
@@ -342,8 +342,8 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="heart-disease-classification">
-<h1>Heart Disease Classification<a class="headerlink" href="#heart-disease-classification" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="heart-disease-classification-report">
+<h1>Heart Disease Classification Report<a class="headerlink" href="#heart-disease-classification-report" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="background">
@@ -407,7 +407,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Attaching packages</span> ------------------------------------------------------------------------ tidyverse 1.3.1 --
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Attaching packages</span> ------------------------------------------------------------------------------- tidyverse 1.3.1 --
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">ggplot2</span> 3.3.5     <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">purrr  </span> 0.3.4
@@ -416,7 +416,7 @@
 <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">readr  </span> 2.1.1     <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">forcats</span> 0.5.1
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Conflicts</span> --------------------------------------------------------------------------- tidyverse_conflicts() --
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Conflicts</span> ---------------------------------------------------------------------------------- tidyverse_conflicts() --
 <span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">filter()</span> masks <span class=" -Color -Color-Blue">stats</span>::filter()
 <span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">lag()</span>    masks <span class=" -Color -Color-Blue">stats</span>::lag()
 </pre></div>
@@ -426,7 +426,7 @@
   required_pkgs.model_spec parsnip
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Attaching packages</span> ----------------------------------------------------------------------- tidymodels 0.1.4 --
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Attaching packages</span> ------------------------------------------------------------------------------ tidymodels 0.1.4 --
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">broom       </span> 0.7.10     <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">rsample     </span> 0.1.1 
@@ -437,7 +437,7 @@
 <span class=" -Color -Color-Green">v</span> <span class=" -Color -Color-Blue">recipes     </span> 0.1.17     
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Conflicts</span> -------------------------------------------------------------------------- tidymodels_conflicts() --
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-- <span class=" -Color -Color-Bold">Conflicts</span> --------------------------------------------------------------------------------- tidymodels_conflicts() --
 <span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">scales</span>::<span class=" -Color -Color-Green">discard()</span> masks <span class=" -Color -Color-Blue">purrr</span>::discard()
 <span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">filter()</span>   masks <span class=" -Color -Color-Blue">stats</span>::filter()
 <span class=" -Color -Color-Red">x</span> <span class=" -Color -Color-Blue">recipes</span>::<span class=" -Color -Color-Green">fixed()</span>  masks <span class=" -Color -Color-Blue">stringr</span>::fixed()
@@ -467,17 +467,13 @@
 <p>We will start by reading in the data using the URL, adding column names, following the necessary pre-processing steps on the dataset, and splitting the dataset into training and testing dataset. Will will then conduct some Exploratory data analysis using visualisations on training data and ggpairs to figure out which attributes will be essential in our classification model.</p>
 <ul class="simple">
 <li><p>Assign column names <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">sex</span></code>, <code class="docutils literal notranslate"><span class="pre">cp</span></code>, <code class="docutils literal notranslate"><span class="pre">trestbps</span></code>, <code class="docutils literal notranslate"><span class="pre">chol</span></code>, <code class="docutils literal notranslate"><span class="pre">fbs</span></code>, <code class="docutils literal notranslate"><span class="pre">restecg</span></code>, <code class="docutils literal notranslate"><span class="pre">thalach</span></code>, <code class="docutils literal notranslate"><span class="pre">exang</span></code>, <code class="docutils literal notranslate"><span class="pre">oldpeak</span></code>, <code class="docutils literal notranslate"><span class="pre">slope</span></code>, <code class="docutils literal notranslate"><span class="pre">ca</span></code>, <code class="docutils literal notranslate"><span class="pre">thal</span></code>, <code class="docutils literal notranslate"><span class="pre">presence</span></code>.</p></li>
+<li><p>Select only <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">trestbps</span></code>, <code class="docutils literal notranslate"><span class="pre">chol</span></code>, <code class="docutils literal notranslate"><span class="pre">thalach</span></code>, <code class="docutils literal notranslate"><span class="pre">oldpeak</span></code> (non-categorical variables), and <code class="docutils literal notranslate"><span class="pre">presence</span></code> (predicted attribute as a factor) columns.</p></li>
 <li><p>Filter out any rows containing NA or invalid value.</p></li>
-<li><p>Select only <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">trestbps</span></code>, <code class="docutils literal notranslate"><span class="pre">chol</span></code>, <code class="docutils literal notranslate"><span class="pre">thalach</span></code>, <code class="docutils literal notranslate"><span class="pre">oldpeak</span></code> (non-categorical variables), and <code class="docutils literal notranslate"><span class="pre">presence</span></code> (predicted attribute) columns.</p></li>
 <li><p>Shuffle rows of the data frame for a more representative randomly ordered data set to remove any bias due to the ordering of the rows in the dataset.</p></li>
-<li><p>Represent <code class="docutils literal notranslate"><span class="pre">presence</span></code> as factor type.</p></li>
 <li><p>Scale all the features being used in Classification to get them on the same scale</p></li>
 </ul>
 <p>After preprocessing the other region datasets in the UCI repository, selecting for attributes we needed for classification, then filtering out for NAs, we were not left with much data from those regions. Furthermore some regions did not even have some of the attributes (columns).</p>
-<ul class="simple">
-<li><p>For example, Switzerland was missing attributes like <code class="docutils literal notranslate"><span class="pre">chol</span></code>.</p></li>
-</ul>
-<p>Cleveland was the dataset that had all the required data without missing values/columns and could then be processed to get rid of NAs. Furthermore, by adding regions with significant differences in overall lifestyle, the unmeasured differences produced by being in a different region could cloud our other variables. Hence, we only used the Cleveland data.</p>
+<p>Cleveland was the only dataset used because it had all the required data without too many missing values/columns. Furthermore, including regions with significant differences in overall lifestyle can have unmeasured differences that could cloud our other variables. Hence, we only used the Cleveland data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a data wrangling function</span>
@@ -508,7 +504,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># possible other files to read from</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># reading other data sources, and see how much data is available</span>
 
 <span class="n">url</span> <span class="o">&lt;-</span> <span class="s">&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/&quot;</span>
 
@@ -542,7 +538,7 @@
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">303</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">14</span>
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">-----------------------------------------------------------------------------------------</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">------------------------------------------------------------------------------------------------</span>
 <span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
 <span class=" -Color -Color-Green">dbl</span> (14): age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpea...
 </pre></div>
@@ -558,7 +554,7 @@ Heart disease data set after dropping all NA has  303 rows and 6 columns
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">123</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">14</span>
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">-----------------------------------------------------------------------------------------</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">------------------------------------------------------------------------------------------------</span>
 <span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
 <span class=" -Color -Color-Green">dbl</span> (14): age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpea...
 </pre></div>
@@ -574,7 +570,7 @@ Heart disease data set after dropping all NA has  117 rows and 6 columns
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">200</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">14</span>
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">-----------------------------------------------------------------------------------------</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">--</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">------------------------------------------------------------------------------------------------</span>
 <span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
 <span class=" -Color -Color-Green">dbl</span> (14): age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpea...
 </pre></div>
@@ -1054,7 +1050,7 @@ Heart disease data set after dropping all NA has  137 rows and 6 columns
 <img alt="_images/group_project_report_15_9.png" src="_images/group_project_report_15_9.png" />
 </div>
 </div>
-<p>We can see that <code class="docutils literal notranslate"><span class="pre">Age</span></code> vs <code class="docutils literal notranslate"><span class="pre">Thalach</span></code>, <code class="docutils literal notranslate"><span class="pre">Age</span></code> vs <code class="docutils literal notranslate"><span class="pre">Oldpeak</span></code>, <code class="docutils literal notranslate"><span class="pre">Oldpeak</span></code> vs <code class="docutils literal notranslate"><span class="pre">Thalach</span></code> are still the best variables that can successfully distinguish between presence and absence of heart disease without getting stacked(overlapped) on top of each other, thus helping in effective classificiation.</p>
+<p>We can see that <code class="docutils literal notranslate"><span class="pre">Age</span></code> vs <code class="docutils literal notranslate"><span class="pre">Thalach</span></code>, <code class="docutils literal notranslate"><span class="pre">Age</span></code> vs <code class="docutils literal notranslate"><span class="pre">Oldpeak</span></code>, <code class="docutils literal notranslate"><span class="pre">Oldpeak</span></code> vs <code class="docutils literal notranslate"><span class="pre">Thalach</span></code> are still the best variables that can successfully distinguish between presence and absence of heart disease without getting stacked (overlapped) on top of each other, thus helping in effective classificiation.</p>
 </div>
 <div class="section" id="eda-using-ggpairs">
 <h3>2.6 EDA (using ggpairs)<a class="headerlink" href="#eda-using-ggpairs" title="Permalink to this headline">¶</a></h3>
@@ -1165,6 +1161,88 @@ Centering for all_predictors()
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tibble: 63 × 7</caption>
+<thead>
+	<tr><th scope=col>neighbors</th><th scope=col>.metric</th><th scope=col>.estimator</th><th scope=col>mean</th><th scope=col>n</th><th scope=col>std_err</th><th scope=col>.config</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td> 1</td><td>accuracy</td><td>binary</td><td>0.6558630</td><td>5</td><td>0.04793530</td><td>Preprocessor1_Model01</td></tr>
+	<tr><td> 3</td><td>accuracy</td><td>binary</td><td>0.6333377</td><td>5</td><td>0.04309644</td><td>Preprocessor1_Model02</td></tr>
+	<tr><td> 5</td><td>accuracy</td><td>binary</td><td>0.6331401</td><td>5</td><td>0.04483357</td><td>Preprocessor1_Model03</td></tr>
+	<tr><td> 7</td><td>accuracy</td><td>binary</td><td>0.6599166</td><td>5</td><td>0.03090470</td><td>Preprocessor1_Model04</td></tr>
+	<tr><td> 9</td><td>accuracy</td><td>binary</td><td>0.6555687</td><td>5</td><td>0.02913862</td><td>Preprocessor1_Model05</td></tr>
+	<tr><td>11</td><td>accuracy</td><td>binary</td><td>0.6910321</td><td>5</td><td>0.03422865</td><td>Preprocessor1_Model06</td></tr>
+	<tr><td>13</td><td>accuracy</td><td>binary</td><td>0.7037857</td><td>5</td><td>0.03877001</td><td>Preprocessor1_Model07</td></tr>
+	<tr><td>15</td><td>accuracy</td><td>binary</td><td>0.7126746</td><td>5</td><td>0.03770146</td><td>Preprocessor1_Model08</td></tr>
+	<tr><td>17</td><td>accuracy</td><td>binary</td><td>0.6996355</td><td>5</td><td>0.03118728</td><td>Preprocessor1_Model09</td></tr>
+	<tr><td>19</td><td>accuracy</td><td>binary</td><td>0.7042732</td><td>5</td><td>0.02998118</td><td>Preprocessor1_Model10</td></tr>
+	<tr><td>21</td><td>accuracy</td><td>binary</td><td>0.6867852</td><td>5</td><td>0.03165492</td><td>Preprocessor1_Model11</td></tr>
+	<tr><td>23</td><td>accuracy</td><td>binary</td><td>0.6994379</td><td>5</td><td>0.04269956</td><td>Preprocessor1_Model12</td></tr>
+	<tr><td>25</td><td>accuracy</td><td>binary</td><td>0.7083311</td><td>5</td><td>0.03136372</td><td>Preprocessor1_Model13</td></tr>
+	<tr><td>27</td><td>accuracy</td><td>binary</td><td>0.6950900</td><td>5</td><td>0.03378611</td><td>Preprocessor1_Model14</td></tr>
+	<tr><td>29</td><td>accuracy</td><td>binary</td><td>0.6951910</td><td>5</td><td>0.02957201</td><td>Preprocessor1_Model15</td></tr>
+	<tr><td>31</td><td>accuracy</td><td>binary</td><td>0.6993412</td><td>5</td><td>0.03567095</td><td>Preprocessor1_Model16</td></tr>
+	<tr><td>33</td><td>accuracy</td><td>binary</td><td>0.6861968</td><td>5</td><td>0.03750649</td><td>Preprocessor1_Model17</td></tr>
+	<tr><td>35</td><td>accuracy</td><td>binary</td><td>0.6950900</td><td>5</td><td>0.04246324</td><td>Preprocessor1_Model18</td></tr>
+	<tr><td>37</td><td>accuracy</td><td>binary</td><td>0.6817479</td><td>5</td><td>0.04539154</td><td>Preprocessor1_Model19</td></tr>
+	<tr><td>39</td><td>accuracy</td><td>binary</td><td>0.6732499</td><td>5</td><td>0.03996046</td><td>Preprocessor1_Model20</td></tr>
+	<tr><td>41</td><td>accuracy</td><td>binary</td><td>0.6688054</td><td>5</td><td>0.03914659</td><td>Preprocessor1_Model21</td></tr>
+	<tr><td>43</td><td>accuracy</td><td>binary</td><td>0.6775977</td><td>5</td><td>0.03962228</td><td>Preprocessor1_Model22</td></tr>
+	<tr><td>45</td><td>accuracy</td><td>binary</td><td>0.6775011</td><td>5</td><td>0.04265340</td><td>Preprocessor1_Model23</td></tr>
+	<tr><td>47</td><td>accuracy</td><td>binary</td><td>0.6689065</td><td>5</td><td>0.02893201</td><td>Preprocessor1_Model24</td></tr>
+	<tr><td>49</td><td>accuracy</td><td>binary</td><td>0.6824418</td><td>5</td><td>0.02736388</td><td>Preprocessor1_Model25</td></tr>
+	<tr><td>51</td><td>accuracy</td><td>binary</td><td>0.6912341</td><td>5</td><td>0.03661517</td><td>Preprocessor1_Model26</td></tr>
+	<tr><td>53</td><td>accuracy</td><td>binary</td><td>0.6824418</td><td>5</td><td>0.02736388</td><td>Preprocessor1_Model27</td></tr>
+	<tr><td>55</td><td>accuracy</td><td>binary</td><td>0.6867896</td><td>5</td><td>0.02464483</td><td>Preprocessor1_Model28</td></tr>
+	<tr><td>57</td><td>accuracy</td><td>binary</td><td>0.7085288</td><td>5</td><td>0.03429708</td><td>Preprocessor1_Model29</td></tr>
+	<tr><td>59</td><td>accuracy</td><td>binary</td><td>0.7219631</td><td>5</td><td>0.03169323</td><td>Preprocessor1_Model30</td></tr>
+	<tr><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
+	<tr><td> 67</td><td>accuracy</td><td>binary</td><td>0.6955819</td><td>5</td><td>0.02659987</td><td>Preprocessor1_Model34</td></tr>
+	<tr><td> 69</td><td>accuracy</td><td>binary</td><td>0.7176153</td><td>5</td><td>0.02823134</td><td>Preprocessor1_Model35</td></tr>
+	<tr><td> 71</td><td>accuracy</td><td>binary</td><td>0.7089196</td><td>5</td><td>0.02226039</td><td>Preprocessor1_Model36</td></tr>
+	<tr><td> 73</td><td>accuracy</td><td>binary</td><td>0.7045718</td><td>5</td><td>0.02525448</td><td>Preprocessor1_Model37</td></tr>
+	<tr><td> 75</td><td>accuracy</td><td>binary</td><td>0.7090162</td><td>5</td><td>0.02685994</td><td>Preprocessor1_Model38</td></tr>
+	<tr><td> 77</td><td>accuracy</td><td>binary</td><td>0.7090162</td><td>5</td><td>0.02685994</td><td>Preprocessor1_Model39</td></tr>
+	<tr><td> 79</td><td>accuracy</td><td>binary</td><td>0.7045718</td><td>5</td><td>0.02706116</td><td>Preprocessor1_Model40</td></tr>
+	<tr><td> 81</td><td>accuracy</td><td>binary</td><td>0.7090162</td><td>5</td><td>0.02856526</td><td>Preprocessor1_Model41</td></tr>
+	<tr><td> 83</td><td>accuracy</td><td>binary</td><td>0.7133641</td><td>5</td><td>0.03768544</td><td>Preprocessor1_Model42</td></tr>
+	<tr><td> 85</td><td>accuracy</td><td>binary</td><td>0.7042776</td><td>5</td><td>0.03544097</td><td>Preprocessor1_Model43</td></tr>
+	<tr><td> 87</td><td>accuracy</td><td>binary</td><td>0.7043742</td><td>5</td><td>0.02690634</td><td>Preprocessor1_Model44</td></tr>
+	<tr><td> 89</td><td>accuracy</td><td>binary</td><td>0.6997321</td><td>5</td><td>0.03244999</td><td>Preprocessor1_Model45</td></tr>
+	<tr><td> 91</td><td>accuracy</td><td>binary</td><td>0.7041765</td><td>5</td><td>0.03313671</td><td>Preprocessor1_Model46</td></tr>
+	<tr><td> 93</td><td>accuracy</td><td>binary</td><td>0.7086210</td><td>5</td><td>0.03438877</td><td>Preprocessor1_Model47</td></tr>
+	<tr><td> 95</td><td>accuracy</td><td>binary</td><td>0.7042732</td><td>5</td><td>0.03438641</td><td>Preprocessor1_Model48</td></tr>
+	<tr><td> 97</td><td>accuracy</td><td>binary</td><td>0.7130654</td><td>5</td><td>0.03614747</td><td>Preprocessor1_Model49</td></tr>
+	<tr><td> 99</td><td>accuracy</td><td>binary</td><td>0.7218577</td><td>5</td><td>0.04096193</td><td>Preprocessor1_Model50</td></tr>
+	<tr><td>101</td><td>accuracy</td><td>binary</td><td>0.6911331</td><td>5</td><td>0.02479683</td><td>Preprocessor1_Model51</td></tr>
+	<tr><td>103</td><td>accuracy</td><td>binary</td><td>0.7042732</td><td>5</td><td>0.02998118</td><td>Preprocessor1_Model52</td></tr>
+	<tr><td>105</td><td>accuracy</td><td>binary</td><td>0.6999253</td><td>5</td><td>0.03492950</td><td>Preprocessor1_Model53</td></tr>
+	<tr><td>107</td><td>accuracy</td><td>binary</td><td>0.6999253</td><td>5</td><td>0.03136519</td><td>Preprocessor1_Model54</td></tr>
+	<tr><td>109</td><td>accuracy</td><td>binary</td><td>0.6868819</td><td>5</td><td>0.03074868</td><td>Preprocessor1_Model55</td></tr>
+	<tr><td>111</td><td>accuracy</td><td>binary</td><td>0.6824374</td><td>5</td><td>0.02850660</td><td>Preprocessor1_Model56</td></tr>
+	<tr><td>113</td><td>accuracy</td><td>binary</td><td>0.6736451</td><td>5</td><td>0.02362232</td><td>Preprocessor1_Model57</td></tr>
+	<tr><td>115</td><td>accuracy</td><td>binary</td><td>0.6736451</td><td>5</td><td>0.01920881</td><td>Preprocessor1_Model58</td></tr>
+	<tr><td>117</td><td>accuracy</td><td>binary</td><td>0.6780896</td><td>5</td><td>0.02172531</td><td>Preprocessor1_Model59</td></tr>
+	<tr><td>119</td><td>accuracy</td><td>binary</td><td>0.6736451</td><td>5</td><td>0.01920881</td><td>Preprocessor1_Model60</td></tr>
+	<tr><td>121</td><td>accuracy</td><td>binary</td><td>0.6779930</td><td>5</td><td>0.01970950</td><td>Preprocessor1_Model61</td></tr>
+	<tr><td>123</td><td>accuracy</td><td>binary</td><td>0.6779930</td><td>5</td><td>0.01970950</td><td>Preprocessor1_Model62</td></tr>
+	<tr><td>125</td><td>accuracy</td><td>binary</td><td>0.6779930</td><td>5</td><td>0.01970950</td><td>Preprocessor1_Model63</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table class="dataframe">
+<caption>A tibble: 1 × 7</caption>
+<thead>
+	<tr><th scope=col>neighbors</th><th scope=col>.metric</th><th scope=col>.estimator</th><th scope=col>mean</th><th scope=col>n</th><th scope=col>std_err</th><th scope=col>.config</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>59</td><td>accuracy</td><td>binary</td><td>0.7219631</td><td>5</td><td>0.03169323</td><td>Preprocessor1_Model30</td></tr>
+</tbody>
+</table>
+</div></div>
 </div>
 </div>
 <div class="section" id="plot-of-k-vs-accuracy-to-choose-the-most-optimal-k-value">
@@ -1205,17 +1283,17 @@ Centering for all_predictors()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>== Workflow [trained] ==========================================================
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>== Workflow [trained] ==================================================================================================
 Preprocessor: Recipe
 Model: nearest_neighbor()
 
--- Preprocessor ----------------------------------------------------------------
+-- Preprocessor --------------------------------------------------------------------------------------------------------
 2 Recipe Steps
 
 * step_scale()
 * step_center()
 
--- Model -----------------------------------------------------------------------
+-- Model ---------------------------------------------------------------------------------------------------------------
 
 Call:
 kknn::train.kknn(formula = ..y ~ ., data = data, ks = min_rows(21,     data, 5), kernel = ~&quot;rectangular&quot;)
@@ -1264,7 +1342,7 @@ Prediction no yes
 </div>
 </div>
 </div>
-<p>From our metrics and confusion matrix above, we can see that our model is about 78.9% accurate. Of the 76 observations in our test data, 60 (37 + 23) of them are correctly classified. 16 of them were either false positives or false negatives, with the two being in a 1:3 ratio.</p>
+<p>From our metrics and confusion matrix above, we can see that our model is about 78.9% accurate. Of the 76 observations in our test data, 60 (37 + 23) of them are correctly classified. 16 of them were either false positives or false negatives, in a 1:3 ratio.</p>
 </div>
 <div class="section" id="comparing-presence-to-predicted-presence">
 <h3>3.4 Comparing presence to predicted presence<a class="headerlink" href="#comparing-presence-to-predicted-presence" title="Permalink to this headline">¶</a></h3>
@@ -1350,7 +1428,7 @@ Prediction no yes
 <h3>4.1 Findings<a class="headerlink" href="#findings" title="Permalink to this headline">¶</a></h3>
 <p>Our pre-analysis of variables showed the most accurate predictors were age, maximum heart rate achieved during exercise, and ST depression induced by exercise. This is corroborated by studies in the European Heart Journal, which concluded that ST segment depression is associated not only with a 100% increase in the occurrence of three-vessel/left main disease but also with an increased risk of subsequent cardiac events, and an analysis published in the Circulation Research journal which analyzed various studies linking the molecular biology of aging and cardiovascular health.</p>
 <p>Using this information, we built a classification model with three predictors (age, thalach, oldpeak) and determined on testing data that it can predict with about 78.9% accuracy whether heart disease will be present or absent in a new, unseen patient.</p>
-<p>As seen in our side-by-side plots comparing presence and predicted presence (Figures 18-23), we can see that our classifier model groups each patient into two noticeable clusters on each predicted presence graph. However, our model wrongly classifies points that appear to be outliers, as the clusters in the actual presence value graphs are not highly separated and distinct. If we were to visualize the points on a 3D plane rather than only plot two variables at a time, then we may be able to collect more information on which points are outliers and if there are any additional trends among those groups. In addition, this model only looks for presence of having heart disease, while the dataset also includes the type of the heart disease of the patient. These differences in the classification of the heart disease itself may help explain the outliers, and point to clusters not detected in this model (which can affect the accuracy for each disease).</p>
+<p>As seen in our side-by-side plots comparing presence and predicted presence (Figures 18-23), we can see that our classifier model groups each patient into two noticeable clusters on each predicted presence graph. However, our model wrongly classifies points that appear to be outliers, as the clusters in the actual presence value graphs are not highly separated and distinct. If we were to visualize the points on a 3D plane rather than only plot two variables at a time, then we may be able to collect more information on which points are outliers and if there are any additional trends among those groups. In addition, this model only looks for presence of having heart disease, while the dataset also includes the type of the heart disease of the patient. These differences in the classification of the heart disease itself may help explain the outliers, and point to clusters not detected in this model (which can affect the accuracy for each disease presence).</p>
 <p>Aside from the comparisons between our predicted presence values and actual presence values, we noticed a weak negative relationship between age and maximum heart rate achieved during exercise. No other notable relationships were observed between the other variables we used in our model. We are unable to draw significant conclusions without more information on how the study was conducted and how data was collected.</p>
 </div>
 <div class="section" id="expectations">
@@ -1426,7 +1504,7 @@ Prediction no yes
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Heart Disease Classification</p>
+            <p class="prev-next-title">Heart Disease Classification Proposal</p>
         </div>
     </a>
 </div>
